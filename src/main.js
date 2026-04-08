@@ -22,24 +22,24 @@ const aboutGalleryImages = [
 
 const projectItems = [
   {
-    name: 'ask',
+    name: 'askBOX',
     category: 'Web App',
     icon: 'ASK',
-    summary: 'Request-based app for the "box" movies/series',
+    summary: 'An app built to make requests to the shared private cloud server, BOX. Streams are made via the PLEX app.',
     details:
-      'iykyk.',
-    stack: ['ReactJS', 'CSS', 'API'],
-    url: '#',
+      'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
+    stack: ['ReactJS', 'Fast API', 'Google Firebase', 'Vercel'],
+    url: 'https://askthebox.vercel.app/',
   },
   {
     name: 'tetris',
-    category: 'Tooling',
+    category: 'Game',
     icon: 'TET',
     summary: 'a very simple and minimalistic tetris game. purpose is that with minimal ui, can you play an entire game',
     details:
-      'more detail here.',
-    stack: ['React', 'Node.js', 'MongoDB'],
-    url: '#',
+      'a simple game dedicated entirely to the frontend. No synchronized state required as the "game" entirely exists within the React "state".',
+    stack: ['React', 'Vercel'],
+    url: 'https://tetris-boxx.vercel.app',
   },
 ]
 
@@ -57,10 +57,7 @@ const projectMarkup = projectItems
       <p class="app-summary">${project.summary}</p>
       <div class="project-expanded">
         <p>${project.details}</p>
-        <ul class="tag-list">
-          ${project.stack.map((tech) => `<li>${tech}</li>`).join('')}
-        </ul>
-        <a href="${project.url}" target="_blank" rel="noreferrer">View project</a>
+        <a href="${project.url}" target="_blank" rel="noreferrer"> LINK </a>
       </div>
       <ul class="tag-list">
         ${project.stack.map((tech) => `<li>${tech}</li>`).join('')}
@@ -115,7 +112,10 @@ document.querySelector('#app').innerHTML = `
        <section id="about" class="about-strip top-about">
         <h2>About Me</h2>
         <p>
-          my hobbies/interests; motorbikes, hiking, reading, philosophy, neuroscience, gaming, AI, etc...
+          some of my hobbies/interests include motorbikes, hiking, reading, philosophy, neuroscience, gaming, AI, etc...
+        </p>
+        <p>
+          books/movies I'd recommend ; interstellar, inception (all the nolan's), iRobot
         </p>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
