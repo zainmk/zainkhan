@@ -70,7 +70,7 @@ document.querySelector('#app').innerHTML = `
             <a href="https://www.linkedin.com/in/zainmkhan" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="mailto:zain.mk@hotmail.com">Email</a>
             <a href="https://gctmaintenance.com/gct-team" target="_blank" rel="noopener noreferrer">GCT</a>
-            <a href="public/Resume - Zain K..pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
           </div>
         </div>
         <div class="profile-slot">
