@@ -241,6 +241,46 @@ h1 {
   margin-top: 0.5rem;
 }
 
+.about-gallery {
+  margin-top: 1rem;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgb(17 34 64 / 65%);
+}
+
+.about-gallery-track {
+  display: flex;
+  width: max-content;
+  gap: 0.7rem;
+  padding: 0.7rem;
+  animation: about-gallery-slide-right 24s linear infinite;
+}
+
+.about-gallery-image {
+  width: 170px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgb(100 255 218 / 20%);
+  flex: 0 0 auto;
+}
+
+@keyframes about-gallery-slide-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-gallery-track {
+    animation: none;
+  }
+}
+
 @media (max-width: 900px) {
   .store-layout {
     width: 92vw;

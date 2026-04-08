@@ -1,6 +1,25 @@
 import './style.css'
 import profileImage from './assets/profilepic.jpg'
 
+import profile2 from './assets/about/2.jpg'
+import profile3 from './assets/about/3.jpg'
+import profile4 from './assets/about/4.jpg'
+import profile5 from './assets/about/5.jpg'
+import profile6 from './assets/about/6.jpg'
+import profile7 from './assets/about/7.jpg'
+
+
+// 'ABOUT ME' IMAGESs
+const aboutGalleryImages = [
+  { src: profile2, alt: 'Profile Image 2' },
+  { src: profile3, alt: 'Profile Image 3' },
+  { src: profile4, alt: 'Profile Image 4' },
+  { src: profile5, alt: 'Profile Image 5' },
+  { src: profile6, alt: 'Profile Image 6' },
+  { src: profile7, alt: 'Profile Image 7' },
+
+]
+
 const projectItems = [
   {
     name: 'ask',
@@ -51,6 +70,10 @@ const projectMarkup = projectItems
   )
   .join('')
 
+const aboutGalleryMarkup = aboutGalleryImages
+  .map((image) => `<img src="${image.src}" alt="${image.alt}" class="about-gallery-image" />`)
+  .join('')
+
 document.querySelector('#app').innerHTML = `
   <div class="store-layout">
     <header class="store-header">
@@ -80,19 +103,26 @@ document.querySelector('#app').innerHTML = `
     </header>
 
     <main>
-      <section id="about" class="about-strip top-about">
-        <h2>About Me</h2>
-        <p>
-          the 'tokens' of my life; motorbikes, hiking, reading, philosophy, neuroscience, gaming, AI, etc...
-        </p>
-      </section>
-
       <section id="projects" class="projects-section">
         <div class="section-head">
           <h2>Projects</h2>
           <p>Scroll through the projects. Each one expands as it comes into focus.</p>
         </div>
-        <div class="project-stack">${projectMarkup}</div>
+        <div class=
+        "project-stack">${projectMarkup}</div>
+      </section>
+      <hr style="margin:30px" />
+       <section id="about" class="about-strip top-about">
+        <h2>About Me</h2>
+        <p>
+          my hobbies/interests; motorbikes, hiking, reading, philosophy, neuroscience, gaming, AI, etc...
+        </p>
+        <div class="about-gallery" aria-label="About image slideshow">
+          <div class="about-gallery-track">
+            ${aboutGalleryMarkup}
+            ${aboutGalleryMarkup}
+          </div>
+        </div>
       </section>
     </main>
   </div>
