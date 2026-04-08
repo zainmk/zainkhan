@@ -28,8 +28,10 @@ const projectItems = [
     summary: 'An app built to make requests to the shared private cloud server, BOX. Streams are made via the PLEX app.',
     details:
       'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
-    stack: ['ReactJS', 'Fast API', 'Google Firebase', 'Vercel'],
+    stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
     url: 'https://askthebox.vercel.app/',
+    githubUrl: 'https://github.com/zainmk/askBOX',
+    imageUrl: 'askbox.jpg',
   },
   {
     name: 'tetris',
@@ -40,6 +42,8 @@ const projectItems = [
       'a simple game dedicated entirely to the frontend. No synchronized state required as the "game" entirely exists within the React "state".',
     stack: ['React', 'Vercel'],
     url: 'https://tetris-boxx.vercel.app',
+    githubUrl: 'https://github.com/zainmk/tetris',
+    imageUrl: 'tetris.jpg',
   },
 ]
 
@@ -54,10 +58,19 @@ const projectMarkup = projectItems
           <p class="app-category">${project.category}</p>
         </div>
       </div>
-      <p class="app-summary">${project.summary}</p>
+      
+      <img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">
+      
       <div class="project-expanded">
         <p>${project.details}</p>
-        <a href="${project.url}" target="_blank" rel="noreferrer"> LINK </a>
+        <div class="project-links">
+          <a href="${project.url}" target="_blank" rel="noreferrer" title="View Live Site">
+            <img src="/chain.ico" alt="Live Site" width="24" height="24">
+          </a>
+          <a href="${project.githubUrl}" target="_blank" rel="noreferrer" title="View on GitHub">
+            <img src="/github.ico" alt="GitHub" width="24" height="24">
+          </a>
+        </div>
       </div>
       <ul class="tag-list">
         ${project.stack.map((tech) => `<li>${tech}</li>`).join('')}
@@ -103,7 +116,7 @@ document.querySelector('#app').innerHTML = `
       <section id="projects" class="projects-section">
         <div class="section-head">
           <h2>Projects</h2>
-          <p>Scroll through the projects. Each one expands as it comes into focus.</p>
+          <p>Hover over the projects to expand and view details.</p>
         </div>
         <div class=
         "project-stack">${projectMarkup}</div>
@@ -136,23 +149,7 @@ function setActiveProject(activeIndex) {
   })
 }
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const index = Number(entry.target.dataset.projectIndex)
-        setActiveProject(index)
-      }
-    })
-  },
-  {
-    threshold: 0.32,
-    rootMargin: '-5% 0px -12% 0px',
-  }
-)
-
 projectPanels.forEach((panel, index) => {
-  observer.observe(panel)
   panel.addEventListener('mouseenter', () => setActiveProject(index))
   panel.addEventListener('focusin', () => setActiveProject(index))
   panel.addEventListener('click', () => {
@@ -160,26 +157,3 @@ projectPanels.forEach((panel, index) => {
     setActiveProject(index)
   })
 })
-
-function setLastProjectAtBottom() {
-  const viewportBottom = window.scrollY + window.innerHeight
-  const pageBottom = document.documentElement.scrollHeight
-  const isAtBottom = viewportBottom >= pageBottom - 2
-
-  if (isAtBottom && projectPanels.length > 0) {
-    setActiveProject(projectPanels.length - 1)
-  }
-}
-
-window.addEventListener('scroll', setLastProjectAtBottom, { passive: true })
-
-if (projectPanels.length > 0) {
-  setActiveProject(0)
-  requestAnimationFrame(() => {
-    const firstRect = projectPanels[0].getBoundingClientRect()
-    if (firstRect.top >= 0 && firstRect.bottom <= window.innerHeight) {
-      setActiveProject(0)
-    }
-    setLastProjectAtBottom()
-  })
-}
