@@ -39,7 +39,7 @@ const projectItems = [
     summary: '',
     details:'Just a regular simple game of tetris. I wanted to create the game with as minimal "instructions" as possible and even to the point where there is no "character-based" text. The gaemplay is intuitive and can be picked up on - and the early losses of learning the game are inconsiquential to the performance later when learned.',
     stack: ['React JS', 'Vercel'],
-    url: 'https://tetris-box.vercel.app',
+    url: 'https://tetris---box.vercel.app',
     githubUrl: 'https://github.com/zainmk/tetris',
     imageUrl: 'tetris.jpg',
   },
