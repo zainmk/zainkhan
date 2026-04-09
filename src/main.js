@@ -24,10 +24,9 @@ const projectItems = [
   {
     name: 'askBOX',
     category: 'Web App',
-    icon: 'ASK',
+    icon: 'A',
     summary: 'An app built to make requests to the shared private cloud server, BOX. Streams are made via the PLEX app.',
-    details:
-      'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
+    details:'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
     stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
     url: 'https://askthebox.vercel.app/',
     githubUrl: 'https://github.com/zainmk/askBOX',
@@ -36,14 +35,24 @@ const projectItems = [
   {
     name: 'tetris',
     category: 'Game',
-    icon: 'TET',
+    icon: 'T',
     summary: 'a very simple and minimalistic tetris game. purpose is that with minimal ui, can you play an entire game',
-    details:
-      'a simple game dedicated entirely to the frontend. No synchronized state required as the "game" entirely exists within the React "state".',
-    stack: ['React', 'Vercel'],
-    url: 'https://tetris-boxx.vercel.app',
+    details:'a simple game dedicated entirely to the frontend. No synchronized state required as the "game" entirely exists within the React "state".',
+    stack: ['React JS', 'Vercel'],
+    url: 'https://tetris-box.vercel.app',
     githubUrl: 'https://github.com/zainmk/tetris',
     imageUrl: 'tetris.jpg',
+  },
+  {
+    name: 'mint',
+    category: 'Web App',
+    icon: 'M',
+    summary: '',
+    details: 'a',
+    stack: ['React JS', 'Vercel'],
+    url: 'https://mint---box.vercel.app',
+    githubUrl: 'https://github.com/zainmk/mint',
+    imageUrl: 'mint.jpg',
   },
 ]
 
@@ -121,15 +130,9 @@ document.querySelector('#app').innerHTML = `
         <div class=
         "project-stack">${projectMarkup}</div>
       </section>
-      <hr style="margin:30px" />
+      <hr style="margin:50px" />
        <section id="about" class="about-strip top-about">
         <h2>About Me</h2>
-        <p>
-          some of my hobbies/interests include motorbikes, hiking, reading, philosophy, neuroscience, gaming, AI, etc...
-        </p>
-        <p>
-          books/movies I'd recommend ; interstellar, inception (all the nolan's), iRobot
-        </p>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
             ${aboutGalleryMarkup}
@@ -152,6 +155,20 @@ function setActiveProject(activeIndex) {
 projectPanels.forEach((panel, index) => {
   panel.addEventListener('mouseenter', () => setActiveProject(index))
   panel.addEventListener('focusin', () => setActiveProject(index))
+
+  panel.addEventListener('mouseleave', () => {
+    if (!panel.matches(':focus-within')) {
+      setActiveProject(undefined)
+    }
+  })
+
+  panel.addEventListener('focusout', (event) => {
+    const nextFocusedElement = event.relatedTarget
+    if (!panel.contains(nextFocusedElement) && !panel.matches(':hover')) {
+      setActiveProject(undefined)
+    }
+  })
+
   panel.addEventListener('click', () => {
     panel.scrollIntoView({ behavior: 'smooth', block: 'center' })
     setActiveProject(index)
