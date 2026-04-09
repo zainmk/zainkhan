@@ -147,7 +147,7 @@ document.querySelector('#app').innerHTML = `
       <section id="projects" class="projects-section">
         <div class="section-head">
           <h2>Projects</h2>
-          <p>Hover over the projects to expand and view details.</p>
+          <p> Feel free to explore my projects ~ let me know of any dead links!.</p>
         </div>
         <div class=
         "project-stack">${projectMarkup}</div>
