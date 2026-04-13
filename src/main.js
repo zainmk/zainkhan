@@ -22,6 +22,17 @@ const aboutGalleryImages = [
 
 const projectItems = [
   {
+    name: 'emaily',
+    category: 'Scripts',
+    icon: 'EY',
+    summary: '',
+    details: 'A script that runs through collecting relevant data and putting it all together into a "dashboard" that is emailed to you on a routinely basis. Google Calendar integration is also included. Claude Codes API  is also integrated to summarize all data collected and generate dynamic custom content based on it',
+    stack: ['Python', 'Github Actions'],
+    url: 'https://github.com/zainmk/emaily',
+    githubUrl: 'https://github.com/zainmk/emaily',
+    imageUrl: 'emaily.png',
+  },
+  {
     name: 'askBOX',
     category: 'Web App',
     icon: 'A',
