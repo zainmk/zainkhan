@@ -243,23 +243,6 @@ h1 {
   color: var(--muted);
 }
 
-.project-links {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.8rem;
-}
-
-.project-links a {
-  display: inline-block;
-  padding: 0.25rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.project-links a:hover {
-  background-color: var(--surface);
-}
-
 .project-expanded .tag-list {
   margin-top: 0.8rem;
 }

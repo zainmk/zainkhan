@@ -23,68 +23,56 @@ const aboutGalleryImages = [
 const projectItems = [
   {
     name: 'emaily',
-    category: 'Scripts',
-    icon: 'EY',
-    summary: '',
-    details: 'A script that runs through collecting relevant data and putting it all together into a "dashboard" that is emailed to you on a routinely basis. Google Calendar integration is also included. Claude Codes API  is also integrated to summarize all data collected and generate dynamic custom content based on it',
+    category: 'Scripts (CRON)',
+    icon: 'E',
+    details: 'A script that calls on relevant data via various APIs and puts it all together into a "dashboard" that is emailed on a routinely basis. Integrated with Google Calendar as well as Claude Code API to summarize all data collected and generate dynamic custom content',
     stack: ['Python', 'Github Actions'],
     url: 'https://github.com/zainmk/emaily',
-    githubUrl: 'https://github.com/zainmk/emaily',
     imageUrl: 'emaily.png',
   },
   {
     name: 'askBOX',
     category: 'Web App',
     icon: 'A',
-    summary: 'An app built to make requests to the shared private cloud server, BOX. Streams are made via the PLEX app.',
     details:'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
     stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
     url: 'https://askthebox.vercel.app/',
-    githubUrl: 'https://github.com/zainmk/askBOX',
     imageUrl: 'askbox.jpg',
   },
   {
     name: 'tetris',
     category: 'Game',
     icon: 'T',
-    summary: '',
-    details:'Just a regular simple game of tetris. I wanted to create the game with as minimal "instructions" as possible and even to the point where there is no "character-based" text. The gaemplay is intuitive and can be picked up on - and the early losses of learning the game are inconsiquential to the performance later when learned.',
+    details:'Just a regular simple game of tetris.',
     stack: ['React JS', 'Vercel'],
     url: 'https://tetris---box.vercel.app',
-    githubUrl: 'https://github.com/zainmk/tetris',
     imageUrl: 'tetris.jpg',
   },
   {
     name: 'mint',
     category: 'Web App',
     icon: 'M',
-    summary: '',
-    details: 'A simple web app to track financial credit card statements via .csv file imports. The app works entirely in your browser and as such, allows the user full control of their data. The .csv files the user collects via their financial institutions, then "tagged" accordingly by the user. At any point, the "state" of the app can be "saved" by the user (exported via .csv) and then imported directly again later. The data is otherwise stored via IndexedDB for persistent storage across sessions.',
+    details: 'A locally run web app to track financial credit card statements via .csv file imports. The app works entirely in your browser and as such, allows the user full control of their data. The .csv files the user collects via their financial institutions, then "tagged" accordingly by the user. At any point, the "state" of the app can be "saved" by the user (exported via .csv) and then imported directly again later. The data is otherwise stored via IndexedDB for persistent storage across sessions.',
     stack: ['React JS', 'IndexedDB', 'Vercel'],
     url: 'https://mint---box.vercel.app',
-    githubUrl: 'https://github.com/zainmk/mint',
     imageUrl: 'mint.jpg',
   },
   {
     name: 'pyTicTacToe',
     category: 'Game',
     icon: 'P',
-    summary: '',
-    details: 'A tkinter GUI based Python TicTacToe game. Goal of this project was to implement a UI via Python as well as experiment with the minimax algorithm. Within game theory, it allows a computer to compute the current "win" state of the game and work backwards in an effort to maximize this value. The algorithm is used by the "Computer" when the hard difficulty is selected and the computer is therefore unbeatable.',
+    details: 'A tkinter GUI based Python TicTacToe game. Goal of this project was to implement a UI via Python as well as experiment with the minimax algorithm. Within game theory, it allows a computer to compute the current "win" state of the game and work backwards in an effort to maximize this value. The algorithm is used by the "Computer" when the hard difficulty is selected; the computer becomes unbeatable.',
     stack: ['Python', 'tkinter', 'minimax'],
     url: 'https://github.com/zainmk/pyTicTacToe',
-    githubUrl: 'https://github.com/zainmk/pyTicTacToe',
     imageUrl: 'pytictactoe.JPG',
   },
   {
     name: 'localneighborhoodCNN',
     category: 'Neural Networks',
     icon: 'NN',
-    summary: '',
     details: 'A Java based implementation of a convolutional neural network. The goal of this project was to implement a CNN from scratch in Java. The CNN is designed to take in 2D data and perform convolution operations on it, allowing it to learn spatial hierarchies of features. The implementation includes layers such as convolutional layers, pooling layers, and fully connected layers. The network is trained using backpropagation and can be used for tasks such as image classification.',
     stack: ['Java', 'CNN'],
     url: 'https://github.com/zainmk/localneighborhoodCNN',
-    githubUrl: 'https://github.com/zainmk/localneighborhoodCNN',
     imageUrl: 'localCNN.png',
   },
 ]
@@ -105,14 +93,6 @@ const projectMarkup = projectItems
       
       <div class="project-expanded">
         <p>${project.details}</p>
-        <div class="project-links">
-          <a href="${project.url}" target="_blank" rel="noreferrer" title="View Live Site">
-            <img src="/chain.ico" alt="Live Site" width="24" height="24">
-          </a>
-          <a href="${project.githubUrl}" target="_blank" rel="noreferrer" title="View on GitHub">
-            <img src="/github.ico" alt="GitHub" width="24" height="24">
-          </a>
-        </div>
       </div>
       <ul class="tag-list">
         ${project.stack.map((tech) => `<li>${tech}</li>`).join('')}
@@ -158,7 +138,7 @@ document.querySelector('#app').innerHTML = `
       <section id="projects" class="projects-section">
         <div class="section-head">
           <h2>Projects</h2>
-          <p> Feel free to explore my projects ~ let me know of any dead links!.</p>
+          <p> Feel free to explore my projects ~ let me know of any dead links!</p>
         </div>
         <div class=
         "project-stack">${projectMarkup}</div>
@@ -203,7 +183,6 @@ projectPanels.forEach((panel, index) => {
   })
 
   panel.addEventListener('click', () => {
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    setActiveProject(index)
+    window.open(projectItems[index].url, '_blank')
   })
 })
