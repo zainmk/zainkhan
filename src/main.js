@@ -24,8 +24,8 @@ const projectItems = [
   {
     name: 'emaily',
     category: 'Scripts (CRON)',
-    icon: 'E',
-    details: 'A script that calls on relevant data via various APIs and puts it all together into a "dashboard" that is emailed on a routinely basis. Integrated with Google Calendar as well as Claude Code API to summarize all data collected and generate dynamic custom content',
+    icon: 'EY',
+    details: 'A script that calls on relevant data via various APIs and puts it all together into a "dashboard" that is emailed on a routinely basis. Requries authentication/integration with Google Calendar as well as Claude Code API to summarize all the data collected and generate dynamic custom content',
     stack: ['Python', 'Github Actions'],
     url: 'https://github.com/zainmk/emaily',
     imageUrl: 'emaily.png',
@@ -33,7 +33,7 @@ const projectItems = [
   {
     name: 'askBOX',
     category: 'Web App',
-    icon: 'A',
+    icon: 'AB',
     details:'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
     stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
     url: 'https://github.com/zainmk/askthebox',
@@ -61,7 +61,7 @@ const projectItems = [
     name: 'pyTicTacToe',
     category: 'Game',
     icon: 'P',
-    details: 'A tkinter GUI based Python TicTacToe game. Goal of this project was to implement a UI via Python as well as experiment with the minimax algorithm. Within game theory, it allows a computer to compute the current "win" state of the game and work backwards in an effort to maximize this value. The algorithm is used by the "Computer" when the hard difficulty is selected; the computer becomes unbeatable.',
+    details: 'A tkinter GUI based Python TicTacToe game. Goal of this project was to implement a UI via Python as well as experiment with the minimax algorithm. It allows a computer to compute the current "win" state of the game and work backwards in an effort to maximize this value. The algorithm is used by the "Computer" when the hard difficulty is selected; the computer becomes unbeatable.',
     stack: ['Python', 'tkinter', 'minimax'],
     url: 'https://github.com/zainmk/pyTicTacToe',
     imageUrl: 'pytictactoe.JPG',
