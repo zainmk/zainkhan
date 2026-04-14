@@ -36,7 +36,7 @@ const projectItems = [
     icon: 'A',
     details:'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
     stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
-    url: 'https://askthebox.vercel.app/',
+    url: 'https://github.com/zainmk/askthebox',
     imageUrl: 'askbox.jpg',
   },
   {
@@ -45,7 +45,7 @@ const projectItems = [
     icon: 'T',
     details:'Just a regular simple game of tetris.',
     stack: ['React JS', 'Vercel'],
-    url: 'https://tetris---box.vercel.app',
+    url: 'https://github.com/zainmk/tetris',
     imageUrl: 'tetris.jpg',
   },
   {
@@ -54,7 +54,7 @@ const projectItems = [
     icon: 'M',
     details: 'A locally run web app to track financial credit card statements via .csv file imports. The app works entirely in your browser and as such, allows the user full control of their data. The .csv files the user collects via their financial institutions, then "tagged" accordingly by the user. At any point, the "state" of the app can be "saved" by the user (exported via .csv) and then imported directly again later. The data is otherwise stored via IndexedDB for persistent storage across sessions.',
     stack: ['React JS', 'IndexedDB', 'Vercel'],
-    url: 'https://mint---box.vercel.app',
+    url: 'https://github.com/zainmk/mint',
     imageUrl: 'mint.jpg',
   },
   {
