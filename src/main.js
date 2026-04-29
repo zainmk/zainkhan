@@ -21,11 +21,20 @@ const aboutGalleryImages = [
 ]
 
 const projectItems = [
+   {
+    name: 'vectorize',
+    category: 'Web App',
+    icon: 'VE',
+    details: 'A web app that allows for semantic ("contextual") and keyword (BM25) based search on a limited dataset of 30 movies. The app shows how "vectorizing" data can allow for these other kinds of search methods and be more effective.',
+    stack: ['Python', 'HTML', 'FastAPI', 'chromaDB', 'model2vec'],
+    url: 'https://github.com/zainmk/vectorize',
+    imageUrl: 'vectorize.png',
+  },
   {
     name: 'emaily',
     category: 'Scripts (CRON)',
-    icon: 'EY',
-    details: 'A script that calls on relevant data via various APIs and puts it all together into a "dashboard" that is emailed on a routinely basis. Requries authentication/integration with Google Calendar as well as Claude Code API to summarize all the data collected and generate dynamic custom content',
+    icon: 'EM',
+    details: 'A script that calls on relevant data via various APIs and puts it all together into a "dashboard" that is emailed on a routinely basis. Requires authentication/integration with Google Calendar as well as Claude Code API to summarize all the data collected and generate dynamic custom content',
     stack: ['Python', 'Github Actions'],
     url: 'https://github.com/zainmk/emaily',
     imageUrl: 'emaily.png',
@@ -33,7 +42,7 @@ const projectItems = [
   {
     name: 'askBOX',
     category: 'Web App',
-    icon: 'AB',
+    icon: 'AS',
     details:'A supporting web application for users to make requests for movies/series tiles. Makes use of the OMDB API to query search results against the IMDB database.',
     stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
     url: 'https://github.com/zainmk/askthebox',
@@ -42,7 +51,7 @@ const projectItems = [
   {
     name: 'tetris',
     category: 'Game',
-    icon: 'T',
+    icon: 'TE',
     details:'Just a regular simple game of tetris.',
     stack: ['React JS', 'Vercel'],
     url: 'https://github.com/zainmk/tetris',
@@ -51,7 +60,7 @@ const projectItems = [
   {
     name: 'mint',
     category: 'Web App',
-    icon: 'M',
+    icon: 'MI',
     details: 'A locally run web app to track financial credit card statements via .csv file imports. The app works entirely in your browser and as such, allows the user full control of their data. The .csv files the user collects via their financial institutions, then "tagged" accordingly by the user. At any point, the "state" of the app can be "saved" by the user (exported via .csv) and then imported directly again later. The data is otherwise stored via IndexedDB for persistent storage across sessions.',
     stack: ['React JS', 'IndexedDB', 'Vercel'],
     url: 'https://github.com/zainmk/mint',
@@ -60,7 +69,7 @@ const projectItems = [
   {
     name: 'pyTicTacToe',
     category: 'Game',
-    icon: 'P',
+    icon: 'PT',
     details: 'A tkinter GUI based Python TicTacToe game. Goal of this project was to implement a UI via Python as well as experiment with the minimax algorithm. It allows a computer to compute the current "win" state of the game and work backwards in an effort to maximize this value. The algorithm is used by the "Computer" when the hard difficulty is selected; the computer becomes unbeatable.',
     stack: ['Python', 'tkinter', 'minimax'],
     url: 'https://github.com/zainmk/pyTicTacToe',
@@ -69,7 +78,7 @@ const projectItems = [
   {
     name: 'localneighborhoodCNN',
     category: 'Neural Networks',
-    icon: 'NN',
+    icon: 'LN',
     details: 'A Java based implementation of a convolutional neural network. The goal of this project was to implement a CNN from scratch in Java. The CNN is designed to take in 2D data and perform convolution operations on it, allowing it to learn spatial hierarchies of features. The implementation includes layers such as convolutional layers, pooling layers, and fully connected layers. The network is trained using backpropagation and can be used for tasks such as image classification.',
     stack: ['Java', 'CNN'],
     url: 'https://github.com/zainmk/localneighborhoodCNN',
