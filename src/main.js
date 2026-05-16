@@ -21,6 +21,15 @@ const aboutGalleryImages = [
 ]
 
 const projectItems = [
+  {
+    name: 'SensoRAG',
+    category: 'Web App',
+    icon: 'SR',
+    details: 'A RAG-based web application to assist users with transducer selections regarding a mechatronic system. The user can upload their own sensor data sheets, or preload the samples, and query with any sort of mechatronic "ask" to evaluate the best sensors to use.',
+    stack: ['Python', 'HTML', 'Flask', 'chromaDB', 'FastEmbed'],
+    url: 'https://github.com/zainmk/SensoRAG',
+    imageUrl: 'sensorag.png',
+  },
    {
     name: 'vectorize',
     category: 'Web App',
