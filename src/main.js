@@ -22,6 +22,15 @@ const aboutGalleryImages = [
 
 const projectItems = [
   {
+    name: 'Addendar',
+    category: 'Chrome Extension',
+    icon: 'AD',
+    details: 'A chrome extension that uses AI to parse screenshots/text-based information to add to their Google Calendar.',
+    stack: ['HTML', 'CSS', 'JS', 'Chrome Extension', 'Anthropic API'],
+    url: 'https://github.com/zainmk/addendar',
+    imageUrl: 'addendar.png',
+  },
+  {
     name: 'SensoRAG',
     category: 'Web App',
     icon: 'SR',
@@ -30,7 +39,7 @@ const projectItems = [
     url: 'https://github.com/zainmk/SensoRAG',
     imageUrl: 'sensorag.png',
   },
-   {
+  {
     name: 'vectorize',
     category: 'Web App',
     icon: 'VE',
