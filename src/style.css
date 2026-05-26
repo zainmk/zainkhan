@@ -163,6 +163,39 @@ h1 {
   align-items: center;
 }
 
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  pointer-events: none;
+}
+
+.project-panel.is-active .github-link {
+  opacity: 0.6;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.github-link:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.github-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.project-panel--clickable {
+  cursor: pointer;
+}
+
 .app-icon {
   width: 48px;
   height: 48px;
