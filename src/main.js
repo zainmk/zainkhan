@@ -32,6 +32,16 @@ const projectItems = [
     url: 'https://senso-rag.vercel.app/'
   },
   {
+    name: 'unicoder',
+    category: 'Chrome Extension',
+    icon: 'UN',
+    details: 'Published Chrome extension allowing for unicode or "alias" text replacement via prompting with "/" and hitting the "Tab" key. Acccepts unicode in hex and custom aliases for multiple character replacement, all in browser. Completely local - no networks calls.',
+    stack: ['HTML', 'CSS', 'JS', 'Chrome Extension'],
+    githubURL: 'https://github.com/zainmk/unicoder',
+    imageUrl: 'unicoder.png',
+    url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
+  },
+  {
     name: 'addendar',
     category: 'Chrome Extension',
     icon: 'AD',
