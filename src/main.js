@@ -189,7 +189,7 @@ document.querySelector('#app').innerHTML = `
       </section>
       <hr style="margin:50px" />
        <section id="about" class="about-strip top-about">
-        <h2>About Me</h2>
+        <h2>PROOF I AM HUMAN ∎ </h2>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
             ${aboutGalleryMarkup}
