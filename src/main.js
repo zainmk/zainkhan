@@ -22,100 +22,90 @@ const aboutGalleryImages = [
 
 const projectItems = [
   {
+    name: 'localneighborhoodCNN',
+    icon: 'LN',
+    details: 'A from-scratch Java implementation of a convolutional neural network, built without any ML frameworks. Implements convolutional, pooling, and fully connected layers with forward and backward pass (backpropagation) manually. Demonstrates a grounded understanding of how spatial feature extraction and gradient descent work at the mathematical level.',
+    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'Machine Learning'],
+    githubURL: 'https://github.com/zainmk/localneighborhoodCNN',
+    imageUrl: 'localCNN.png',
+  },
+  {
     name: 'sensoRAG',
-    category: 'Web App',
     icon: 'SR',
-    details: 'A web app demonstrating how RAG (Retrieval-Augmented Generation) can assist with transducer selection regarding a mechatronic "ask". The user can upload their own sensor data sheets, or preload the samples, and query to analyze the technical specs and explain via LLM in "natural language".',
-    stack: ['Python', 'HTML', 'Flask', 'ChromaDB', 'FastEmbed'],
+    details: 'An AI-assisted tool for mechatronic system design — helps engineers select the right transducers by querying uploaded sensor datasheets using RAG (Retrieval-Augmented Generation). Surfaces relevant specs, operating ranges, and trade-offs in plain language, reducing the manual effort of cross-referencing datasheets during the design phase.',
+    stack: ['Python', 'Flask', 'RAG', 'LLM', 'ChromaDB', 'Sensor Systems'],
     githubURL: 'https://github.com/zainmk/SensoRAG',
     imageUrl: 'sensorag.png',
     url: 'https://senso-rag.vercel.app/'
   },
   {
-    name: 'unicoder',
-    category: 'Chrome Extension',
-    icon: 'UN',
-    details: 'Published Chrome extension allowing for unicode or "alias" text replacement via prompting with "/" and hitting the "Tab" key. Acccepts unicode in hex and custom aliases for multiple character replacement, all in browser. Completely local - no networks calls.',
-    stack: ['HTML', 'CSS', 'JS', 'Chrome Extension'],
-    githubURL: 'https://github.com/zainmk/unicoder',
-    imageUrl: 'unicoder.png',
-    url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
-  },
-  {
     name: 'addendar',
-    category: 'Chrome Extension',
     icon: 'AD',
-    details: 'A chrome extension that uses AI to parse screenshots/text-based information to quickly add to their Google Calendar. A conveniently quick user control, via a right click (context menu) directly on any highlighted text or image.',
-    stack: ['HTML', 'CSS', 'JS', 'Chrome Extension', 'Anthropic API'],
+    details: 'A Chrome extension that uses an LLM to parse screenshots or highlighted text and extract event details to add directly to Google Calendar. Triggered via right-click context menu on any image or selected text — no copy-pasting required.',
+    stack: ['JavaScript', 'Chrome Extension', 'Anthropic API', 'LLM', 'Computer Vision'],
     githubURL: 'https://github.com/zainmk/addendar',
     imageUrl: 'addendar.png',
   },
   {
     name: 'vectorize',
-    category: 'Web App',
     icon: 'VE',
-    details: 'A web app that allows for semantic ("contextual") and keyword (BM25) based search on a limited dataset of 30 movies. The app shows how "vectorizing" data can allow for these other kinds of search methods and be more effective.',
-    stack: ['Python', 'HTML', 'FastAPI', 'ChromaDB', 'model2vec'],
+    details: 'A web app comparing semantic (vector) and keyword (BM25) search side-by-side on a movie dataset. Built to practically explore how embedding models encode meaning, and where each retrieval method outperforms the other — useful context for any system that needs intelligent search or retrieval.',
+    stack: ['Python', 'FastAPI', 'Vector Embeddings', 'Semantic Search', 'ChromaDB', 'NLP'],
     githubURL: 'https://github.com/zainmk/vectorize',
     imageUrl: 'vectorize.png',
     url: 'https://vector1ze.vercel.app/'
   },
   {
     name: 'emaily',
-    category: 'Scripts (CRON)',
     icon: 'EM',
-    details: 'A script that calls on relevant data via various APIs and puts it all together into a "dashboard" that is emailed on a routinely basis. Requires authentication/integration with Google Calendar as well as Claude Code API to summarize all the data collected and generate dynamic custom content',
-    stack: ['Python', 'Github Actions'],
+    details: 'An automated daily briefing script that aggregates data from multiple APIs (calendar, weather, news) and uses an LLM to summarize and generate dynamic content, delivered via email on a scheduled CRON job through GitHub Actions. No manual intervention required after setup.',
+    stack: ['Python', 'GitHub Actions', 'REST APIs', 'LLM', 'Automation', 'CI/CD'],
     githubURL: 'https://github.com/zainmk/emaily',
     imageUrl: 'emaily.png',
   },
   {
-    name: 'askBOX',
-    category: 'Web App',
-    icon: 'AS',
-    details:'A web application for users to make requests for movies/series titles (hosted via plex server). Allows .ics export for episode release dates.',
-    stack: ['React JS', 'Fast API', 'Google Firebase', 'Vercel'],
-    githubURL: 'https://github.com/zainmk/askthebox',
-    imageUrl: 'askbox.jpg',
-    url: 'https://askthebox.vercel.app/'
-  },
-  {
-    name: 'tetris',
-    category: 'Game',
-    icon: 'TE',
-    details:'Just a regular simple game of tetris.',
-    stack: ['React JS', 'Vercel'],
-    githubURL: 'https://github.com/zainmk/tetris',
-    imageUrl: 'tetris.jpg',
-    url: 'https://tetr1s.vercel.app/'
-  },
-  {
     name: 'mint',
-    category: 'Web App',
     icon: 'MI',
-    details: 'Web app to track financial credit card statements via .csv file imports. Records are then "tagged" accordingly by the user via custom assigned hotkeys. The "state" of the app is saved via an importable/exportable .csv file - mimicking a video game save file. Authentication is therefore tied to this file\'s ownership. The data is otherwise stored via IndexedDB for persistent storage across sessions.',
-    stack: ['React JS', 'IndexedDB', 'Vercel'],
+    details: 'A browser-based financial tracker for credit card statements imported via .csv. Records are tagged using custom hotkeys; the full app state is exported and re-imported as a single .csv — functioning like a save file. All data stays in the browser via IndexedDB; no backend, no accounts.',
+    stack: ['React', 'IndexedDB', 'Full Stack', 'Browser Storage', 'Data Management'],
     githubURL: 'https://github.com/zainmk/mint',
     imageUrl: 'mint.jpg',
     url: 'https://m1nt.vercel.app/'
   },
   {
+    name: 'askBOX',
+    icon: 'AS',
+    details: 'A web app for submitting and tracking movie/series requests against a self-hosted Plex server. Validates titles against the IMDB database via the OMDB API and supports .ics export for upcoming episode release dates.',
+    stack: ['React', 'FastAPI', 'Firebase', 'REST API', 'Full Stack'],
+    githubURL: 'https://github.com/zainmk/askthebox',
+    imageUrl: 'askbox.jpg',
+    url: 'https://askthebox.vercel.app/'
+  },
+  {
+    name: 'unicoder',
+    icon: 'UN',
+    details: 'Published Chrome extension for in-browser unicode and alias text expansion. Type "/" to trigger, hit Tab to replace — supports hex unicode input and multi-character aliases. Entirely local with no network calls.',
+    stack: ['JavaScript', 'Chrome Extension', 'Browser APIs', 'Published'],
+    githubURL: 'https://github.com/zainmk/unicoder',
+    imageUrl: 'unicoder.png',
+    url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
+  },
+  {
     name: 'pyTicTacToe',
-    category: 'Game',
     icon: 'PT',
-    details: 'A tkinter GUI based Python TicTacToe game. Goal of this project was to implement a UI via Python as well as experiment with the minimax algorithm. It allows a computer to compute the current "win" state of the game and work backwards in an effort to maximize this value. The algorithm is used by the "Computer" when the hard difficulty is selected; the computer becomes unbeatable.',
-    stack: ['Python', 'tkinter', 'minimax'],
+    details: 'A Python TicTacToe game with a tkinter GUI, built to explore the minimax algorithm. On hard difficulty, the computer evaluates every possible game state recursively to maximize its outcome — making it unbeatable.',
+    stack: ['Python', 'tkinter', 'Minimax', 'Game AI', 'GUI'],
     githubURL: 'https://github.com/zainmk/pyTicTacToe',
     imageUrl: 'pytictactoe.JPG',
   },
   {
-    name: 'localneighborhoodCNN',
-    category: 'Neural Networks',
-    icon: 'LN',
-    details: 'A Java based implementation of a convolutional neural network. The goal of this project was to implement a CNN from scratch in Java. The CNN is designed to take in 2D data and perform convolution operations on it, allowing it to learn spatial hierarchies of features. The implementation includes layers such as convolutional layers, pooling layers, and fully connected layers. The network is trained using backpropagation and can be used for tasks such as image classification.',
-    stack: ['Java', 'CNN'],
-    githubURL: 'https://github.com/zainmk/localneighborhoodCNN',
-    imageUrl: 'localCNN.png',
+    name: 'tetris',
+    icon: 'TE',
+    details: 'Classic Tetris, implemented in React.',
+    stack: ['React', 'Game Development', 'JavaScript'],
+    githubURL: 'https://github.com/zainmk/tetris',
+    imageUrl: 'tetris.jpg',
+    url: 'https://tetr1s.vercel.app/'
   },
 ]
 
@@ -127,10 +117,10 @@ const projectMarkup = projectItems
     <article class="project-panel${project.url ? ' project-panel--clickable' : ''}" data-project-index="${index}">
       <div class="app-top">
         <div class="app-icon" aria-hidden="true">${project.icon}</div>
-        <div>
+        <div class="app-info">
           <h3>${project.name}</h3>
-          <p class="app-category">${project.category}</p>
         </div>
+        ${project.url ? '<span class="live-badge">Live</span>' : ''}
       </div>
 
       <img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">
@@ -161,8 +151,10 @@ document.querySelector('#app').innerHTML = `
             Mechatronics Engineer | Software Developer | Human Being (!AI)
           </p>
           <p class="store-copy">
-            Hello! Welcome to my porfolio page. 
-            Here is where I try to showcase any major projects of significant interest to me and a little bit more about myself.
+            Mechatronics Engineer actively transitioning toward roles at the intersection of hardware systems and intelligent software.
+            My background spans control systems, embedded hardware, and mechatronic design — and I'm building on that foundation with
+            a growing depth in software development, AI integration, and full-stack engineering.
+            The projects here reflect that bridge: practical tools built with an engineer's mindset.
           </p>
           <div class="socials">
             <a href="https://github.com/zainmk" target="_blank" rel="noreferrer">GitHub</a>
