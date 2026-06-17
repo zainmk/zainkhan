@@ -151,10 +151,11 @@ document.querySelector('#app').innerHTML = `
             Mechatronics Engineer | Software Developer | Human Being (!AI)
           </p>
           <p class="store-copy">
-            Mechatronics Engineer actively transitioning toward roles at the intersection of hardware systems and intelligent software.
-            My background spans control systems, embedded hardware, and mechatronic design — and I'm building on that foundation with
-            a growing depth in software development, AI integration, and full-stack engineering.
-            The projects here reflect that bridge: practical tools built with an engineer's mindset.
+            Engineer with a software development background, working toward roles in embedded and edge-AI systems —
+            where models must operate under real size, power, and compute constraints that cloud-scale assumptions don't account for.
+            Interested in the engineering discipline of making intelligence fit the hardware: quantization, pruning, efficient architectures,
+            and the tradeoffs that come with deploying ML on devices that can't afford to be wrong or slow.
+            The projects here are a software foundation being built deliberately toward that problem space.
           </p>
           <div class="socials">
             <a href="https://github.com/zainmk" target="_blank" rel="noreferrer">GitHub</a>
