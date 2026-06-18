@@ -184,10 +184,6 @@ document.querySelector('#app').innerHTML = `
       <div class="section-divider"></div>
       <section id="about" class="about-strip top-about">
         <h2>About Me</h2>
-        <div class="about-bio">
-          <p>Mechatronics Engineering graduate with hands-on experience in control systems, embedded hardware, and sensor integration. Currently deepening the software side — with a focus on AI, systems programming, and the constraints that define real-world deployment.</p>
-          <p>Targeting roles at the edge of hardware and intelligence: embedded ML, real-time systems, and resource-constrained environments where software decisions carry physical consequences.</p>
-        </div>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
             ${aboutGalleryMarkup}
