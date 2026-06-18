@@ -142,11 +142,7 @@ const aboutGalleryMarkup = aboutGalleryImages
   .join('')
 
 document.querySelector('#app').innerHTML = `
-  <nav class="site-nav">
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-  </nav>
-  <div class="store-layout">
+<div class="store-layout">
     <header class="store-header">
       <div class="header-grid">
         <div>
