@@ -20,12 +20,13 @@ const aboutGalleryImages = [
 
 ]
 
-const projectItems = [
+const systemsProjects = [
   {
     name: 'KalmanNET',
     icon: 'KN',
+    featured: true,
     details: 'A 3D drone state estimation simulation implementing the KalmanNET architecture — where a neural network dynamically learns the process noise covariance matrix (Q) rather than requiring it to be hand-tuned. Fuses data from four sensor modalities (IMU, GPS, barometer, magnetometer) and renders the estimated trajectory against the true simulated path in real time, making filter convergence and correction behaviour directly observable.',
-    stack: ['Python', 'Flask', 'Kalman Filter', 'KalmanNET', 'Sensor Fusion', 'State Estimation'],
+    stack: ['Python', 'Flask', 'Kalman Filter', 'KalmanNET', 'Sensor Fusion', 'State Estimation', 'Edge AI'],
     githubURL: 'https://github.com/zainmk/kalmanNET',
     imageUrl: 'kalmanNET.png',
   },
@@ -33,7 +34,7 @@ const projectItems = [
     name: 'localneighborhoodCNN',
     icon: 'LN',
     details: 'A convolutional neural network built from scratch in Java, with no ML frameworks. Implements the full forward pass — convolutional layers, pooling, and fully-connected classification — and trains via manually coded backpropagation. Every weight update, gradient calculation, and layer operation is written explicitly, stripping away abstraction to build a first-principles understanding of how CNNs learn spatial features.',
-    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'Machine Learning'],
+    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'Machine Learning', 'Model Architecture', 'Edge Inference'],
     githubURL: 'https://github.com/zainmk/localneighborhoodCNN',
     imageUrl: 'localCNN.png',
   },
@@ -41,18 +42,10 @@ const projectItems = [
     name: 'sensoRAG',
     icon: 'SR',
     details: 'An AI-assisted tool for mechatronic system design that reduces the manual effort of transducer selection. Engineers upload sensor datasheets (or preload samples), then query in natural language — Claude retrieves and reasons over the relevant chunks, surfacing operating ranges, specs, and trade-offs in plain language. Built on a RAG pipeline with ChromaDB for vector storage and FastEmbed for embeddings.',
-    stack: ['Python', 'Flask', 'RAG', 'Claude API', 'ChromaDB', 'Sensor Systems'],
+    stack: ['Python', 'Flask', 'RAG', 'Claude API', 'ChromaDB', 'Sensor Systems', 'Embedded Systems'],
     githubURL: 'https://github.com/zainmk/SensoRAG',
     imageUrl: 'sensorag.png',
     url: 'https://senso-rag.vercel.app/'
-  },
-  {
-    name: 'addendar',
-    icon: 'AD',
-    details: 'A Chrome extension that uses Claude to parse screenshots or highlighted text and extract structured event details — title, date, and time — then adds the event directly to Google Calendar. Triggered via right-click context menu on any image or selected text. The structured extraction step avoids the ambiguity of passing raw unformatted content directly to the Calendar API.',
-    stack: ['JavaScript', 'Chrome Extension', 'Claude API', 'LLM', 'Google Calendar API'],
-    githubURL: 'https://github.com/zainmk/addendar',
-    imageUrl: 'addendar.png',
   },
   {
     name: 'vectorize',
@@ -62,6 +55,25 @@ const projectItems = [
     githubURL: 'https://github.com/zainmk/vectorize',
     imageUrl: 'vectorize.png',
     url: 'https://vector1ze.vercel.app/'
+  },
+  {
+    name: 'pyTicTacToe',
+    icon: 'PT',
+    details: 'A Python TicTacToe game with a tkinter GUI, built to implement and understand the minimax algorithm. On hard difficulty, the AI exhaustively evaluates every possible future game state — scoring terminal states by win, loss, or draw — and selects the move that maximises its guaranteed outcome regardless of the opponent\'s play, making it theoretically unbeatable.',
+    stack: ['Python', 'tkinter', 'Minimax', 'Adversarial Search', 'GUI'],
+    githubURL: 'https://github.com/zainmk/pyTicTacToe',
+    imageUrl: 'pytictactoe.JPG',
+  },
+]
+
+const softwareProjects = [
+  {
+    name: 'addendar',
+    icon: 'AD',
+    details: 'A Chrome extension that uses Claude to parse screenshots or highlighted text and extract structured event details — title, date, and time — then adds the event directly to Google Calendar. Triggered via right-click context menu on any image or selected text. The structured extraction step avoids the ambiguity of passing raw unformatted content directly to the Calendar API.',
+    stack: ['JavaScript', 'Chrome Extension', 'Claude API', 'LLM', 'Google Calendar API'],
+    githubURL: 'https://github.com/zainmk/addendar',
+    imageUrl: 'addendar.png',
   },
   {
     name: 'emaily',
@@ -99,14 +111,6 @@ const projectItems = [
     url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
   },
   {
-    name: 'pyTicTacToe',
-    icon: 'PT',
-    details: 'A Python TicTacToe game with a tkinter GUI, built to implement and understand the minimax algorithm. On hard difficulty, the AI exhaustively evaluates every possible future game state — scoring terminal states by win, loss, or draw — and selects the move that maximises its guaranteed outcome regardless of the opponent\'s play, making it theoretically unbeatable.',
-    stack: ['Python', 'tkinter', 'Minimax', 'Adversarial Search', 'GUI'],
-    githubURL: 'https://github.com/zainmk/pyTicTacToe',
-    imageUrl: 'pytictactoe.JPG',
-  },
-  {
     name: 'tetris',
     icon: 'TE',
     details: 'Classic Tetris in React — piece generation, rotation, collision detection, line clearing, and progressive speed scaling.',
@@ -117,17 +121,25 @@ const projectItems = [
   },
 ]
 
+const allProjects = [...systemsProjects, ...softwareProjects]
+
 const githubIcon = `<svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`
 
-const projectMarkup = projectItems
-  .map(
-    (project, index) => `
-    <article class="project-panel${(project.url || project.githubURL) ? ' project-panel--clickable' : ''}" data-project-index="${index}">
+function renderCard(project, index) {
+  const classes = [
+    'project-panel',
+    project.featured ? 'project-panel--featured' : '',
+    (project.url || project.githubURL) ? 'project-panel--clickable' : '',
+  ].filter(Boolean).join(' ')
+
+  return `
+    <article class="${classes}" data-project-index="${index}">
       <div class="app-top">
         <div class="app-icon" aria-hidden="true">${project.icon}</div>
         <div class="app-info">
           <h3>${project.name}</h3>
         </div>
+        ${project.featured ? '<span class="featured-badge">Featured</span>' : ''}
         ${project.url ? '<span class="live-badge">Live</span>' : ''}
       </div>
 
@@ -142,8 +154,10 @@ const projectMarkup = projectItems
       </ul>
     </article>
   `
-  )
-  .join('')
+}
+
+const systemsMarkup = systemsProjects.map((p, i) => renderCard(p, i)).join('')
+const softwareMarkup = softwareProjects.map((p, i) => renderCard(p, systemsProjects.length + i)).join('')
 
 const aboutGalleryMarkup = aboutGalleryImages
   .map((image) => `<img src="${image.src}" alt="${image.alt}" class="about-gallery-image" />`)
@@ -160,11 +174,11 @@ document.querySelector('#app').innerHTML = `
             Mechatronics Engineer | Software Developer | Human Being (!AI)
           </p>
           <p class="store-copy">
-            Engineer with a software development background, working toward roles in embedded and edge-AI systems —
-            where models must operate under real size, power, and compute constraints that cloud-scale assumptions don't account for.
-            Interested in the engineering discipline of making intelligence fit the hardware: quantization, pruning, efficient architectures,
-            and the tradeoffs that come with deploying ML on devices that can't afford to be wrong or slow.
-            The projects here are a software foundation being built deliberately toward that problem space.
+            Mechatronics Engineering graduate pivoting toward embedded AI and edge systems — specifically at the intersection
+            of classical control theory (Kalman filtering, sensor fusion) and learned models that must operate within real hardware constraints.
+            Interested in the engineering discipline of making intelligence fit the device: quantization, pruning, efficient architectures,
+            and the tradeoffs that define deployment on systems that can't afford to be wrong or slow.
+            The work here bridges both sides of that problem space.
           </p>
           <div class="socials">
             <a href="https://github.com/zainmk" target="_blank" rel="noreferrer">
@@ -196,13 +210,22 @@ document.querySelector('#app').innerHTML = `
     </header>
 
     <main>
-      <section id="projects" class="projects-section">
+      <section id="systems" class="projects-section">
         <div class="section-head">
-          <h2>Projects</h2>
-          <p> Feel free to explore my projects ~ let me know of any dead links!</p>
+          <h2>Systems &amp; ML</h2>
+          <p>Engineering and machine learning work — control theory, neural networks, and intelligent systems.</p>
         </div>
-        <div class=
-        "project-stack">${projectMarkup}</div>
+        <div class="project-stack">${systemsMarkup}</div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="software" class="projects-section">
+        <div class="section-head section-head--secondary">
+          <h2>Software &amp; Tools</h2>
+          <p>Full-stack and tooling work demonstrating software depth.</p>
+        </div>
+        <div class="project-stack software-stack">${softwareMarkup}</div>
       </section>
       <div class="section-divider"></div>
       <section id="about" class="about-strip top-about">
@@ -249,7 +272,7 @@ projectPanels.forEach((panel, index) => {
   }
 
   panel.addEventListener('click', () => {
-    const target = projectItems[index].url || projectItems[index].githubURL
+    const target = allProjects[index].url || allProjects[index].githubURL
     if (target) window.open(target, '_blank')
   })
 })
