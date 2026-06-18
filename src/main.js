@@ -114,7 +114,7 @@ const githubIcon = `<svg class="github-icon" viewBox="0 0 16 16" aria-hidden="tr
 const projectMarkup = projectItems
   .map(
     (project, index) => `
-    <article class="project-panel${project.url ? ' project-panel--clickable' : ''}" data-project-index="${index}">
+    <article class="project-panel${(project.url || project.githubURL) ? ' project-panel--clickable' : ''}" data-project-index="${index}">
       <div class="app-top">
         <div class="app-icon" aria-hidden="true">${project.icon}</div>
         <div class="app-info">
@@ -126,7 +126,8 @@ const projectMarkup = projectItems
       <img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">
 
       <div class="project-expanded">
-        <p>${project.details}${project.githubURL ? ` <a class="github-link" href="${project.githubURL}" target="_blank" rel="noreferrer" aria-label="${project.name} on GitHub" title="View on GitHub">${githubIcon}</a>` : ''}</p>
+        <p>${project.details}</p>
+        ${project.githubURL ? `<a class="github-link" href="${project.githubURL}" target="_blank" rel="noreferrer" aria-label="${project.name} on GitHub" title="View on GitHub">${githubIcon} GitHub</a>` : ''}
       </div>
       <ul class="tag-list">
         ${project.stack.map((tech) => `<li>${tech}</li>`).join('')}
@@ -141,7 +142,7 @@ const aboutGalleryMarkup = aboutGalleryImages
   .join('')
 
 document.querySelector('#app').innerHTML = `
-  <div class="store-layout">
+<div class="store-layout">
     <header class="store-header">
       <div class="header-grid">
         <div>
@@ -180,9 +181,13 @@ document.querySelector('#app').innerHTML = `
         <div class=
         "project-stack">${projectMarkup}</div>
       </section>
-      <hr style="margin:50px" />
-       <section id="about" class="about-strip top-about">
-        <h2> ABOUT ME </h2>
+      <div class="section-divider"></div>
+      <section id="about" class="about-strip top-about">
+        <h2>About Me</h2>
+        <div class="about-bio">
+          <p>Mechatronics Engineering graduate with hands-on experience in control systems, embedded hardware, and sensor integration. Currently deepening the software side — with a focus on AI, systems programming, and the constraints that define real-world deployment.</p>
+          <p>Targeting roles at the edge of hardware and intelligence: embedded ML, real-time systems, and resource-constrained environments where software decisions carry physical consequences.</p>
+        </div>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
             ${aboutGalleryMarkup}
@@ -225,8 +230,7 @@ projectPanels.forEach((panel, index) => {
   }
 
   panel.addEventListener('click', () => {
-    if (projectItems[index].url) {
-      window.open(projectItems[index].url, '_blank')
-    }
+    const target = projectItems[index].url || projectItems[index].githubURL
+    if (target) window.open(target, '_blank')
   })
 })
