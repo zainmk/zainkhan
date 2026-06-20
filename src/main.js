@@ -68,6 +68,14 @@ const systemsProjects = [
 
 const softwareProjects = [
   {
+    name: 'autoadgen',
+    icon: 'AG',
+    details: 'A weekly automated pipeline that generates contextual banner ads grounded in real Shopify inventory and live pricing — not generic copy. Claude writes three ad concepts per run (constrained against invented prices), Playwright renders them into publication-ready PNGs composited with Pexels photography and current product data, and a GitHub Environments approval gate runs before anything publishes. Replaces ~4–7 hrs/week of manual design work at ~$0.02–$0.05/run.',
+    stack: ['Python', 'GitHub Actions', 'Claude API', 'Shopify GraphQL API', 'Playwright', 'Pexels API', 'Automation'],
+    githubURL: 'https://github.com/zainmk/autoadgen',
+    imageUrl: 'autoadgen.png',
+  },
+  {
     name: 'addendar',
     icon: 'AD',
     details: 'A Chrome extension that uses Claude to parse screenshots or highlighted text and extract structured event details — title, date, and time — then adds the event directly to Google Calendar. Triggered via right-click context menu on any image or selected text. The structured extraction step avoids the ambiguity of passing raw unformatted content directly to the Calendar API.',
