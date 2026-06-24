@@ -76,6 +76,16 @@ const softwareProjects = [
     imageUrl: 'autoadgen.png',
   },
   {
+    name: 'mint',
+    icon: 'MI',
+    featured: true,
+    details: 'A personal finance tracker that inverts conventional web architecture — the user\'s machine is the database. Bank transaction CSVs are imported directly, tagged via custom-assigned hotkeys, and visualised through spending charts and calendar heatmaps. State is managed through a dual-layer strategy: a human-readable mint-data.json written to your filesystem via the File System Access API, backed by IndexedDB for instant in-browser loads. No accounts, no backend, no cloud — and since the save folder is user-selected, pointing it at a NAS mounted as a network drive gives private cloud access across devices without involving any third-party service.',
+    stack: ['React 19', 'File System Access API', 'IndexedDB', 'Full Stack', 'Local-First'],
+    githubURL: 'https://github.com/zainmk/mint',
+    imageUrl: 'mint.png',
+    url: 'https://m1nt.vercel.app/'
+  },
+  {
     name: 'addendar',
     icon: 'AD',
     details: 'A Chrome extension that uses Claude to parse screenshots or highlighted text and extract structured event details — title, date, and time — then adds the event directly to Google Calendar. Triggered via right-click context menu on any image or selected text. The structured extraction step avoids the ambiguity of passing raw unformatted content directly to the Calendar API.',
@@ -90,15 +100,6 @@ const softwareProjects = [
     stack: ['Python', 'GitHub Actions', 'OpenWeatherMap API', 'NASA API', 'Gmail API', 'LLM'],
     githubURL: 'https://github.com/zainmk/emaily',
     imageUrl: 'emaily.png',
-  },
-  {
-    name: 'mint',
-    icon: 'MI',
-    details: 'A browser-based financial tracker for credit card statements imported via .csv. Transactions are categorised using custom-assigned hotkeys for fast keyboard-driven tagging. The full application state — transactions, tags, and categories — is exported and restored as a single .csv, functioning like a game save file. All data stays local via IndexedDB; no accounts, no backend, nothing leaves the device.',
-    stack: ['React', 'IndexedDB', 'Full Stack', 'Browser Storage', 'Data Management'],
-    githubURL: 'https://github.com/zainmk/mint',
-    imageUrl: 'mint.jpg',
-    url: 'https://m1nt.vercel.app/'
   },
   {
     name: 'askBOX',
