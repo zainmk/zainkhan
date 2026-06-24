@@ -179,9 +179,13 @@ document.querySelector('#app').innerHTML = `
         <div>
           <p class="eyebrow">Hello World!</p>
           <h1>Zain Khan</h1>
-          <p class="store-subtitle">
-            Mechatronics Engineer | Software Developer | Human Being (!AI)
-          </p>
+          <div class="role-badge">
+            <span>Mechatronics Engineer</span>
+            <span class="role-divider">|</span>
+            <span>Software Developer</span>
+            <span class="role-divider">|</span>
+            <span>Human Being (!AI)</span>
+          </div>
           <p class="store-copy">
             Mechatronics Engineering graduate pivoting toward embedded AI and edge systems — specifically at the intersection
             of classical control theory (Kalman filtering, sensor fusion) and learned models that must operate within real hardware constraints.

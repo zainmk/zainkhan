@@ -100,12 +100,25 @@ h1 {
   letter-spacing: -0.02em;
 }
 
-.store-subtitle {
-  margin: 0.45rem 0 0;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--muted);
-  letter-spacing: 0.01em;
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.7rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  background: rgb(29 53 87 / 50%);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+}
+
+.role-divider {
+  color: var(--border);
+  user-select: none;
 }
 
 .store-copy {
