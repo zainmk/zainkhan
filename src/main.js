@@ -68,22 +68,31 @@ const systemsProjects = [
 
 const softwareProjects = [
   {
+    name: 'htmlr',
+    icon: 'HR',
+    featured: true,
+    details: 'A distraction-free rich-text note editor where every note is a self-contained .html file on your device — readable in any browser, greppable, and portable without any export step. Built on TipTap (ProseMirror) for WYSIWYG editing with a two-layer storage model: the File System Access API writes directly to a user-selected folder as source of truth, backed by IndexedDB for instant loads. Conflict resolution via timestamp comparison makes it safe to point at a NAS share or mounted cloud drive for transparent multi-device sync. No accounts, no proprietary format, no vendor lock-in. Installable as a PWA for offline use.',
+    stack: ['React 19', 'TypeScript', 'TipTap', 'File System Access API', 'IndexedDB', 'PWA', 'Local-First'],
+    githubURL: 'https://github.com/zainmk/htmlr',
+    imageUrl: 'htmlr.png',
+    url: 'https://htmlr.vercel.app/'
+  },
+  {
+    name: 'mint',
+    icon: 'MI',
+    details: 'A personal finance tracker that inverts conventional web architecture — the user\'s machine is the database. Bank transaction CSVs are imported directly, tagged via custom-assigned hotkeys, and visualised through spending charts and calendar heatmaps. State is managed through a dual-layer strategy: a human-readable mint-data.json written to your filesystem via the File System Access API, backed by IndexedDB for instant in-browser loads. No accounts, no backend, no cloud — and since the save folder is user-selected, pointing it at a NAS mounted as a network drive gives private cloud access across devices without involving any third-party service.',
+    stack: ['React 19', 'File System Access API', 'IndexedDB', 'Full Stack', 'Local-First'],
+    githubURL: 'https://github.com/zainmk/mint',
+    imageUrl: 'mint.png',
+    url: 'https://m1nt.vercel.app/'
+  },
+  {
     name: 'autoadgen',
     icon: 'AG',
     details: 'A weekly automated pipeline that generates contextual banner ads grounded in real Shopify inventory and live pricing — not generic copy. Claude writes three ad concepts per run (constrained against invented prices), Playwright renders them into publication-ready PNGs composited with Pexels photography and current product data, and a GitHub Environments approval gate runs before anything publishes. Replaces ~4–7 hrs/week of manual design work at ~$0.02–$0.05/run.',
     stack: ['Python', 'GitHub Actions', 'Claude API', 'Shopify GraphQL API', 'Playwright', 'Pexels API', 'Automation'],
     githubURL: 'https://github.com/zainmk/autoadgen',
     imageUrl: 'autoadgen.png',
-  },
-  {
-    name: 'mint',
-    icon: 'MI',
-    featured: true,
-    details: 'A personal finance tracker that inverts conventional web architecture — the user\'s machine is the database. Bank transaction CSVs are imported directly, tagged via custom-assigned hotkeys, and visualised through spending charts and calendar heatmaps. State is managed through a dual-layer strategy: a human-readable mint-data.json written to your filesystem via the File System Access API, backed by IndexedDB for instant in-browser loads. No accounts, no backend, no cloud — and since the save folder is user-selected, pointing it at a NAS mounted as a network drive gives private cloud access across devices without involving any third-party service.',
-    stack: ['React 19', 'File System Access API', 'IndexedDB', 'Full Stack', 'Local-First'],
-    githubURL: 'https://github.com/zainmk/mint',
-    imageUrl: 'mint.png',
-    url: 'https://m1nt.vercel.app/'
   },
   {
     name: 'addendar',
