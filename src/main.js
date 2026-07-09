@@ -29,6 +29,7 @@ const systemsProjects = [
     stack: ['Python', 'Flask', 'Kalman Filter', 'KalmanNET', 'Sensor Fusion', 'State Estimation', 'Edge AI'],
     githubURL: 'https://github.com/zainmk/kalmanNET',
     imageUrl: 'kalmanNET.png',
+    url: 'https://kalman-net.vercel.app/web/'
   },
   {
     name: 'localneighborhoodCNN',
