@@ -95,6 +95,15 @@ const softwareProjects = [
     imageUrl: 'autoadgen.png',
   },
   {
+    name: 'unicoder',
+    icon: 'UN',
+    details: 'A published Chrome extension for fast in-browser unicode and text alias expansion. Type "/" to trigger, then Tab to replace — supports hex unicode input and multi-character string aliases configured entirely in-browser. Completely local: no network calls, no permissions beyond the active tab, no data collection.',
+    stack: ['JavaScript', 'Chrome Extension', 'Browser APIs', 'Published'],
+    githubURL: 'https://github.com/zainmk/unicoder',
+    imageUrl: 'unicoder.png',
+    url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
+  },
+  {
     name: 'addendar',
     icon: 'AD',
     details: 'A Chrome extension that uses Claude to parse screenshots or highlighted text and extract structured event details — title, date, and time — then adds the event directly to Google Calendar. Triggered via right-click context menu on any image or selected text. The structured extraction step avoids the ambiguity of passing raw unformatted content directly to the Calendar API.',
@@ -118,15 +127,6 @@ const softwareProjects = [
     githubURL: 'https://github.com/zainmk/askthebox',
     imageUrl: 'askbox.jpg',
     url: 'https://askthebox.vercel.app/'
-  },
-  {
-    name: 'unicoder',
-    icon: 'UN',
-    details: 'A published Chrome extension for fast in-browser unicode and text alias expansion. Type "/" to trigger, then Tab to replace — supports hex unicode input and multi-character string aliases configured entirely in-browser. Completely local: no network calls, no permissions beyond the active tab, no data collection.',
-    stack: ['JavaScript', 'Chrome Extension', 'Browser APIs', 'Published'],
-    githubURL: 'https://github.com/zainmk/unicoder',
-    imageUrl: 'unicoder.png',
-    url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
   },
   {
     name: 'tetris',
