@@ -22,20 +22,30 @@ const aboutGalleryImages = [
 
 const systemsProjects = [
   {
+    name: 'jetson-nano...',
+    icon: 'JN',
+    inProgress: true,
+    details: 'An embedded ML project benchmarking object-recognition models on the NVIDIA Jetson Nano — measuring how different detection architectures (YOLO, MobileNet-SSD, and lighter backbones) trade off inference latency, throughput (FPS), and accuracy under the Nano\'s fixed GPU and power budget. The goal is a hands-on, first-principles understanding of what "edge deployment" actually costs: where model size meets real-time performance, and where quantization and lighter architectures earn their place. My first step from simulation into running inference on real, constrained hardware.',
+    stack: ['Jetson Nano', 'Python', 'PyTorch', 'TensorRT', 'Object Detection', 'Edge Inference', 'Benchmarking'],
+    imageUrl: 'jetson_nano.jpeg',
+    imageUrlAlt: 'jetson_nano_2.jpeg',
+  },
+  {
     name: 'KalmanNET',
     icon: 'KN',
     featured: true,
     details: 'A 3D drone state estimation simulation implementing the KalmanNET architecture — where a neural network dynamically learns the process noise covariance matrix (Q) rather than requiring it to be hand-tuned. Fuses data from four sensor modalities (IMU, GPS, barometer, magnetometer) and renders the estimated trajectory against the true simulated path in real time, making filter convergence and correction behaviour directly observable.',
-    stack: ['Python', 'Flask', 'Kalman Filter', 'KalmanNET', 'Sensor Fusion', 'State Estimation', 'Edge AI'],
+    stack: ['Python', 'Flask', 'Kalman Filter', 'KalmanNET', 'Sensor Fusion', 'State Estimation', 'Simulation'],
     githubURL: 'https://github.com/zainmk/kalmanNET',
     imageUrl: 'kalmanNET.png',
+    videoUrl: 'kalmannet.mp4',
     url: 'https://kalman-net.vercel.app/web/'
   },
   {
     name: 'localneighborhoodCNN',
     icon: 'LN',
-    details: 'A convolutional neural network built from scratch in Java, with no ML frameworks. Implements the full forward pass — convolutional layers, pooling, and fully-connected classification — and trains via manually coded backpropagation. Every weight update, gradient calculation, and layer operation is written explicitly, stripping away abstraction to build a first-principles understanding of how CNNs learn spatial features.',
-    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'Machine Learning', 'Model Architecture', 'Edge Inference'],
+    details: 'A convolutional neural network built from scratch in Java, with no ML frameworks — trained and tested on the MNIST dataset. Implements the full forward pass (convolutional, max-pooling, and fully-connected layers) and trains via manually coded backpropagation, including the underlying matrix operations. Every weight update, gradient calculation, and layer operation is written explicitly, stripping away abstraction to build a first-principles understanding of how CNNs learn spatial features.',
+    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'MNIST', 'Machine Learning', 'Model Architecture'],
     githubURL: 'https://github.com/zainmk/localneighborhoodCNN',
     imageUrl: 'localCNN.png',
   },
@@ -46,6 +56,7 @@ const systemsProjects = [
     stack: ['Python', 'Flask', 'RAG', 'Claude API', 'ChromaDB', 'Sensor Systems', 'Embedded Systems'],
     githubURL: 'https://github.com/zainmk/SensoRAG',
     imageUrl: 'sensorag.png',
+    videoUrl: 'sensorag.mp4',
     url: 'https://senso-rag.vercel.app/'
   },
   {
@@ -71,6 +82,7 @@ const softwareProjects = [
   {
     name: 'htmlr',
     icon: 'HR',
+    iconImage: 'htmlr_logo.png',
     featured: true,
     details: 'A distraction-free rich-text note editor where every note is a self-contained .html file on your device — readable in any browser, greppable, and portable without any export step. Built on TipTap (ProseMirror) for WYSIWYG editing with a two-layer storage model: the File System Access API writes directly to a user-selected folder as source of truth, backed by IndexedDB for instant loads. Conflict resolution via timestamp comparison makes it safe to point at a NAS share or mounted cloud drive for transparent multi-device sync. No accounts, no proprietary format, no vendor lock-in. Installable as a PWA for offline use.',
     stack: ['React 19', 'TypeScript', 'TipTap', 'File System Access API', 'IndexedDB', 'PWA', 'Local-First'],
@@ -101,7 +113,9 @@ const softwareProjects = [
     details: 'A published Chrome extension for fast in-browser unicode and text alias expansion. Type "/" to trigger, then Tab to replace — supports hex unicode input and multi-character string aliases configured entirely in-browser. Completely local: no network calls, no permissions beyond the active tab, no data collection.',
     stack: ['JavaScript', 'Chrome Extension', 'Browser APIs', 'Published'],
     githubURL: 'https://github.com/zainmk/unicoder',
+    iconImage: 'unicoder_logo.png',
     imageUrl: 'unicoder.png',
+    videoUrl: 'unicoder.mp4',
     url: 'https://chromewebstore.google.com/detail/unicoder/lnjibkhlchplofnkdfpfanahbcnifddg'
   },
   {
@@ -142,27 +156,87 @@ const softwareProjects = [
 
 const allProjects = [...systemsProjects, ...softwareProjects]
 
+const experienceItems = [
+  {
+    company: 'GCT Maintenance Solutions',
+    role: 'Software Engineer',
+    period: 'Sep 2024 – Present',
+    location: 'Calgary, AB',
+    logo: 'gct_logo.png',
+    points: [
+      'Lead developer on a full-stack SaaS ERP platform for the mining industry — ReactJS frontend to a RESTful NodeJS backend, with Knex/SQL schema design, migrations, and database recovery plans.',
+      'Own the Azure cloud infrastructure: RBAC across services and users, Terraform (IaC) provisioning multiple environments, and GitHub Actions for CI/CD.',
+      'Delivered a contract ETL rollout for AgnicoEagle (SAP → JDE) across Ontario mines using PySpark / Databricks and authenticated Azure resources — responsible for data transformation, filtering, and orchestrated loading.',
+      'Lead a team of developer interns under Agile, defining coding principles and distributing work.',
+    ],
+    stack: ['ReactJS', 'NodeJS', 'SQL', 'Azure', 'Terraform', 'Databricks', 'CI/CD'],
+  },
+  {
+    company: 'Heliolytics',
+    role: 'Full Stack Developer — Applied ML',
+    period: 'Aug 2021 – Jun 2023',
+    location: 'Toronto, ON',
+    highlight: true,
+    logo: 'helio_logo.png',
+    points: [
+      'Led development of a React-based analysis tool applying computer vision and ML to detect and classify deformities across solar panel arrays from thermal imagery — replacing legacy inspection tooling.',
+      'Built and maintained the full stack behind it: GraphQL database design, Python-based ML/automation scripts, and internal API endpoints, with PyTest coverage validating detection accuracy and reliability.',
+      'Contributed to a SaaS satellite-imaging product delivering automated visual assessments for solar-array site monitoring and asset management.',
+      'Documented system architecture and translated computer-vision and infrastructure decisions into accessible terms for non-technical stakeholders.',
+    ],
+    stack: ['Computer Vision', 'Machine Learning', 'Python', 'GraphQL', 'React', 'PyTest'],
+  },
+]
+
+const experienceMarkup = experienceItems
+  .map(
+    (job) => `
+    <article class="experience-item${job.highlight ? ' experience-item--highlight' : ''}">
+      <div class="experience-head">
+        ${job.logo ? `<img class="experience-logo" src="${job.logo}" alt="${job.company} logo" loading="lazy">` : ''}
+        <div class="experience-headtext">
+          <h3>${job.company} <span class="experience-role">${job.role}</span></h3>
+          <p class="experience-meta">${job.period} · ${job.location}</p>
+        </div>
+      </div>
+      <ul class="experience-points">
+        ${job.points.map((point) => `<li>${point}</li>`).join('')}
+      </ul>
+      <ul class="tag-list">
+        ${job.stack.map((tech) => `<li>${tech}</li>`).join('')}
+      </ul>
+    </article>
+  `
+  )
+  .join('')
+
 const githubIcon = `<svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`
 
 function renderCard(project, index) {
   const classes = [
     'project-panel',
     project.featured ? 'project-panel--featured' : '',
+    project.inProgress ? 'project-panel--in-progress' : '',
+    !project.imageUrl ? 'project-panel--no-image' : '',
     (project.url || project.githubURL) ? 'project-panel--clickable' : '',
   ].filter(Boolean).join(' ')
 
   return `
     <article class="${classes}" data-project-index="${index}">
       <div class="app-top">
-        <div class="app-icon" aria-hidden="true">${project.icon}</div>
+        <div class="app-icon${project.iconImage ? ' app-icon--image' : ''}" aria-hidden="true">${project.iconImage ? `<img class="app-icon-img" src="${project.iconImage}" alt="">` : project.icon}</div>
         <div class="app-info">
           <h3>${project.name}</h3>
         </div>
+        ${project.inProgress ? '<span class="progress-badge">In Progress</span>' : ''}
         ${project.featured ? '<span class="featured-badge">Featured</span>' : ''}
         ${project.url ? '<span class="live-badge">Live</span>' : ''}
       </div>
 
-      <img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">
+      ${project.videoUrl
+        ? `<video class="project-image project-video" src="${project.videoUrl}"${project.imageUrl ? ` poster="${project.imageUrl}"` : ''} muted loop playsinline preload="metadata" aria-hidden="true"></video>`
+        : project.imageUrl ? `<img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">` : ''}
+      ${project.imageUrlAlt ? `<img class="project-image project-image--alt" src="${project.imageUrlAlt}" alt="${project.name} screenshot (alternate)" aria-hidden="true">` : ''}
 
       <div class="project-expanded">
         <p>${project.details}</p>
@@ -182,6 +256,70 @@ const aboutGalleryMarkup = aboutGalleryImages
   .map((image) => `<img src="${image.src}" alt="${image.alt}" class="about-gallery-image" />`)
   .join('')
 
+const favouriteBooks = [
+  {
+    title: 'Republic',
+    author: 'Plato',
+    // Open Library cover (ISBN, Penguin Classics ed.); swap for a local /books/*.jpg anytime
+    cover: 'https://covers.openlibrary.org/b/isbn/9780140455113-M.jpg?default=false',
+    blurb: 'Plato\'s foundational dialogue on justice, the ideal state, and the good life — home to the Allegory of the Cave.',
+  },
+  {
+    title: 'Dune',
+    author: 'Frank Herbert',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780441172719-M.jpg?default=false',
+    blurb: 'A sci-fi epic of ecology, power, and prophecy on the desert planet Arrakis — a landmark of systems-driven world-building.',
+  },
+  {
+    title: 'I, Robot',
+    author: 'Isaac Asimov',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780553294385-M.jpg?default=false',
+    blurb: 'Asimov\'s classic story cycle introducing the Three Laws of Robotics and probing the ethics of artificial minds.',
+  },
+  {
+    title: 'Descartes\' Error',
+    author: 'Antonio Damasio',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780143036227-M.jpg?default=false',
+    blurb: 'A neuroscientist\'s case that emotion is essential to rational thought — dismantling the strict reason/feeling divide.',
+  },
+  {
+    title: 'Critique of Pure Reason',
+    author: 'Immanuel Kant',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780140447477-M.jpg?default=false',
+    blurb: 'Kant\'s landmark on the structure and limits of reason — how the mind actively shapes experience, and what can be known a priori.',
+  },
+  {
+    title: '1984',
+    author: 'George Orwell',
+    cover: 'https://m.media-amazon.com/images/I/61HkdyBpKOL._AC_UF1000,1000_QL80_.jpg',
+    blurb: 'Orwell\'s dystopia of total surveillance, thought control, and the manipulation of truth — the origin of Big Brother and doublethink.',
+  },
+  {
+    title: 'Empire of AI',
+    author: 'Karen Hao',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780593657508-M.jpg?default=false',
+    blurb: 'An investigative account of OpenAI and the race to build AGI — the ambition, power, and human cost behind the modern AI boom.',
+  },
+]
+
+const booksMarkup = favouriteBooks
+  .map(
+    (book) => `
+    <li class="book-badge" tabindex="0">
+      ${book.title} — ${book.author}
+      <span class="book-pop" role="tooltip">
+        <img class="book-cover" src="${book.cover}" alt="${book.title} cover" loading="lazy" onerror="this.remove()">
+        <span class="book-pop-text">
+          <span class="book-pop-title">${book.title}</span>
+          <span class="book-pop-author">${book.author}</span>
+          <span class="book-pop-blurb">${book.blurb}</span>
+        </span>
+      </span>
+    </li>
+  `
+  )
+  .join('')
+
 document.querySelector('#app').innerHTML = `
 <div class="store-layout">
     <header class="store-header">
@@ -197,11 +335,13 @@ document.querySelector('#app').innerHTML = `
             <span>Human Being (!AI)</span>
           </div>
           <p class="store-copy">
-            Mechatronics Engineering graduate pivoting toward embedded AI and edge systems — specifically at the intersection
-            of classical control theory (Kalman filtering, sensor fusion) and learned models that must operate within real hardware constraints.
-            Interested in the engineering discipline of making intelligence fit the device: quantization, pruning, efficient architectures,
-            and the tradeoffs that define deployment on systems that can't afford to be wrong or slow.
-            The work here bridges both sides of that problem space.
+            Software engineer with a Mechatronics Engineering foundation, working toward embedded AI and edge systems.
+            My strength is in software — full-stack apps, ML fundamentals, and automation pipelines — and I'm now building
+            toward the hardware side, currently benchmarking object-recognition models on an NVIDIA Jetson Nano to understand
+            what edge deployment actually costs in latency, power, and accuracy.
+          </p>
+          <p class="store-copy">
+            The projects below span both: the software depth I've built, and the systems and ML work bridging toward what's next.
           </p>
           <div class="socials">
             <a href="https://github.com/zainmk" target="_blank" rel="noreferrer">
@@ -233,10 +373,20 @@ document.querySelector('#app').innerHTML = `
     </header>
 
     <main>
+      <section id="experience" class="projects-section">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>Professional software and applied ML — computer vision, full-stack platforms, and cloud infrastructure.</p>
+        </div>
+        <div class="experience-stack">${experienceMarkup}</div>
+      </section>
+
+      <div class="section-divider"></div>
+
       <section id="systems" class="projects-section">
         <div class="section-head">
-          <h2>Systems &amp; ML</h2>
-          <p>Engineering and machine learning work — control theory, neural networks, and intelligent systems.</p>
+          <h2>Engineering &amp; AI</h2>
+          <p>Control theory, neural networks, and machine learning — bridging toward embedded and edge deployment.</p>
         </div>
         <div class="project-stack">${systemsMarkup}</div>
       </section>
@@ -253,6 +403,43 @@ document.querySelector('#app').innerHTML = `
       <div class="section-divider"></div>
       <section id="about" class="about-strip top-about">
         <h2>About Me</h2>
+        <div class="about-bio">
+          <p>Double-degree graduate from Western University in Mechatronics Systems Engineering (BESc.) and Computer Science (BSc.) — a foundation spanning control systems, embedded hardware, and sensor integration alongside formal software fundamentals. Two years of professional applied ML and computer vision at Heliolytics, plus full-stack and cloud engineering since, with hands-on embedded work from autonomous robotics to rocketry avionics.</p>
+          <p>Now closing the loop back to hardware — currently benchmarking object-recognition models on an NVIDIA Jetson Nano to build a first-principles feel for the cost of edge deployment. Targeting roles at the intersection of software and hardware: computer vision, embedded ML, and resource-constrained systems where software decisions carry physical consequences.</p>
+        </div>
+        <div class="about-meta">
+          <div class="about-tools">
+            <span class="about-tools-label">Education</span>
+            <ul class="tag-list">
+              <li>Mechatronics Systems Engineering — BESc.</li>
+              <li>Computer Science — BSc.</li>
+              <li>Western University</li>
+            </ul>
+          </div>
+          <div class="about-tools">
+            <span class="about-tools-label">Certifications</span>
+            <ul class="tag-list">
+              <li>IBM AI Engineering — Professional Certificate</li>
+            </ul>
+          </div>
+          <div class="about-tools">
+            <span class="about-tools-label">Tools &amp; Hardware</span>
+            <ul class="tag-list">
+              <li>C / C++</li>
+              <li>Python</li>
+              <li>MATLAB / Simulink</li>
+              <li>SolidWorks</li>
+              <li>Arduino</li>
+              <li>Raspberry Pi</li>
+              <li>Jetson Nano</li>
+              <li>Oscilloscopes / Lab Instrumentation</li>
+            </ul>
+          </div>
+          <div class="about-tools">
+            <span class="about-tools-label">Favourite Books</span>
+            <ul class="tag-list book-list">${booksMarkup}</ul>
+          </div>
+        </div>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
             ${aboutGalleryMarkup}
@@ -273,12 +460,33 @@ function setActiveProject(activeIndex) {
 }
 
 projectPanels.forEach((panel, index) => {
-  panel.addEventListener('mouseenter', () => setActiveProject(index))
-  panel.addEventListener('focusin', () => setActiveProject(index))
+  const video = panel.querySelector('.project-video')
+  const playVideo = () => {
+    if (video) {
+      const played = video.play()
+      if (played) played.catch(() => {})
+    }
+  }
+  const stopVideo = () => {
+    if (video) {
+      video.pause()
+      video.currentTime = 0
+    }
+  }
+
+  panel.addEventListener('mouseenter', () => {
+    setActiveProject(index)
+    playVideo()
+  })
+  panel.addEventListener('focusin', () => {
+    setActiveProject(index)
+    playVideo()
+  })
 
   panel.addEventListener('mouseleave', () => {
     if (!panel.matches(':focus-within')) {
       setActiveProject(undefined)
+      stopVideo()
     }
   })
 
@@ -286,6 +494,7 @@ projectPanels.forEach((panel, index) => {
     const nextFocusedElement = event.relatedTarget
     if (!panel.contains(nextFocusedElement) && !panel.matches(':hover')) {
       setActiveProject(undefined)
+      stopVideo()
     }
   })
 
