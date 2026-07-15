@@ -42,14 +42,6 @@ const systemsProjects = [
     url: 'https://kalman-net.vercel.app/web/'
   },
   {
-    name: 'localneighborhoodCNN',
-    icon: 'LN',
-    details: 'A convolutional neural network built from scratch in Java, with no ML frameworks — trained and tested on the MNIST dataset. Implements the full forward pass (convolutional, max-pooling, and fully-connected layers) and trains via manually coded backpropagation, including the underlying matrix operations. Every weight update, gradient calculation, and layer operation is written explicitly, stripping away abstraction to build a first-principles understanding of how CNNs learn spatial features.',
-    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'MNIST', 'Machine Learning', 'Model Architecture'],
-    githubURL: 'https://github.com/zainmk/localneighborhoodCNN',
-    imageUrl: 'localCNN.png',
-  },
-  {
     name: 'sensoRAG',
     icon: 'SR',
     details: 'An AI-assisted tool for mechatronic system design that reduces the manual effort of transducer selection. Engineers upload sensor datasheets (or preload samples), then query in natural language — Claude retrieves and reasons over the relevant chunks, surfacing operating ranges, specs, and trade-offs in plain language. Built on a RAG pipeline with ChromaDB for vector storage and FastEmbed for embeddings.',
@@ -58,6 +50,14 @@ const systemsProjects = [
     imageUrl: 'sensorag.png',
     videoUrl: 'sensorag.mp4',
     url: 'https://senso-rag.vercel.app/'
+  },
+  {
+    name: 'localneighborhoodCNN',
+    icon: 'LN',
+    details: 'A convolutional neural network built from scratch in Java, with no ML frameworks — trained and tested on the MNIST dataset. Implements the full forward pass (convolutional, max-pooling, and fully-connected layers) and trains via manually coded backpropagation, including the underlying matrix operations. Every weight update, gradient calculation, and layer operation is written explicitly, stripping away abstraction to build a first-principles understanding of how CNNs learn spatial features.',
+    stack: ['Java', 'CNN', 'Neural Networks', 'Backpropagation', 'MNIST', 'Machine Learning', 'Model Architecture'],
+    githubURL: 'https://github.com/zainmk/localneighborhoodCNN',
+    imageUrl: 'localCNN.png',
   },
   {
     name: 'vectorize',
