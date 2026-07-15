@@ -752,12 +752,20 @@ h1 {
   white-space: normal;
 }
 
+.about-gallery-label {
+  margin-top: 1.4rem;
+}
+
 .about-gallery {
   margin-top: 1.2rem;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: rgb(17 34 64 / 65%);
+}
+
+.about-gallery-label + .about-gallery {
+  margin-top: 0.5rem;
 }
 
 .about-gallery-track {

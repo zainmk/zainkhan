@@ -440,6 +440,7 @@ document.querySelector('#app').innerHTML = `
             <ul class="tag-list book-list">${booksMarkup}</ul>
           </div>
         </div>
+        <span class="about-tools-label about-gallery-label">Photos of my life</span>
         <div class="about-gallery" aria-label="About image slideshow">
           <div class="about-gallery-track">
             ${aboutGalleryMarkup}
