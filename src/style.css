@@ -491,7 +491,7 @@ h1 {
 }
 
 .project-panel.is-active .project-expanded {
-  max-height: 320px;
+  max-height: 520px;
   opacity: 1;
   transform: translateY(0);
   margin-top: 0.8rem;
@@ -502,6 +502,10 @@ h1 {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.7;
+}
+
+.project-expanded p + p {
+  margin-top: 0.7rem;
 }
 
 .project-expanded .tag-list {

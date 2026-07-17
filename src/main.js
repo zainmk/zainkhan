@@ -108,6 +108,15 @@ const softwareProjects = [
     imageUrl: 'autoadgen.png',
   },
   {
+    name: 'resume-adapt',
+    icon: 'RA',
+    details: 'A Chrome extension that tailors your resume to a specific job posting using Claude. A master resume is ingested once and parsed into a structured "experience inventory" cached in-browser; pasting any job description then generates a downloadable .docx with the most relevant experience surfaced and original formatting and links preserved.\n\nThe design is built around cost — later generations reference the compact cached inventory instead of reprocessing the full document, and Anthropic prompt caching trims repeat-run costs by ~25–30%. Bounded token budgets and single-attempt ingestion guard against runaway bills and hallucinated content.',
+    stack: ['JavaScript', 'Chrome Extension (MV3)', 'Claude API', 'Prompt Caching', 'DOCX Processing', 'LLM'],
+    githubURL: 'https://github.com/zainmk/resume-adapt',
+    imageUrl: 'resume_adapt.png',
+    iconImage: 'resume-adapt-logo.png',
+  },
+  {
     name: 'unicoder',
     icon: 'UN',
     details: 'A published Chrome extension for fast in-browser unicode and text alias expansion. Type "/" to trigger, then Tab to replace — supports hex unicode input and multi-character string aliases configured entirely in-browser. Completely local: no network calls, no permissions beyond the active tab, no data collection.',
@@ -239,7 +248,7 @@ function renderCard(project, index) {
       ${project.imageUrlAlt ? `<img class="project-image project-image--alt" src="${project.imageUrlAlt}" alt="${project.name} screenshot (alternate)" aria-hidden="true">` : ''}
 
       <div class="project-expanded">
-        <p>${project.details}</p>
+        ${project.details.split('\n\n').map((para) => `<p>${para}</p>`).join('')}
         ${project.githubURL ? `<a class="github-link" href="${project.githubURL}" target="_blank" rel="noreferrer" aria-label="${project.name} on GitHub" title="View on GitHub">${githubIcon} GitHub</a>` : ''}
       </div>
       <ul class="tag-list">
