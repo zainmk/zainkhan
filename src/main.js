@@ -1,4 +1,5 @@
 import './style.css'
+import { inject } from '@vercel/analytics'
 import profileImage from './assets/profilepic.jpg'
 
 import profile2 from './assets/about/2.jpg'
@@ -518,3 +519,6 @@ projectPanels.forEach((panel, index) => {
     if (target) window.open(target, '_blank')
   })
 })
+
+// Initialize Vercel Web Analytics
+inject()
