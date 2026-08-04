@@ -472,6 +472,28 @@ h1 {
   }
 }
 
+/* Multi-image slideshow: JS toggles .is-current so only that slide is shown */
+.project-slide {
+  opacity: 0;
+  transition: opacity 0.3s ease, clip-path 0.3s ease, transform 0.3s ease;
+}
+
+.project-slide.is-current {
+  opacity: 0.35;
+}
+
+.project-panel:hover .project-slide,
+.project-panel:focus-within .project-slide,
+.project-panel.is-active .project-slide {
+  opacity: 0;
+}
+
+.project-panel:hover .project-slide.is-current,
+.project-panel:focus-within .project-slide.is-current,
+.project-panel.is-active .project-slide.is-current {
+  opacity: 1;
+}
+
 /* ── Expanded content ───────────────────────────────────────── */
 
 .app-summary {

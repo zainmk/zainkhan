@@ -22,13 +22,13 @@ const aboutGalleryImages = [
 
 const systemsProjects = [
   {
-    name: 'jetson-nano...',
+    name: 'jetson-benchmarks-lab',
     icon: 'JN',
-    inProgress: true,
-    details: 'An embedded ML project benchmarking object-recognition models on the NVIDIA Jetson Nano — measuring how different detection architectures (YOLO, MobileNet-SSD, and lighter backbones) trade off inference latency, throughput (FPS), and accuracy under the Nano\'s fixed GPU and power budget. The goal is a hands-on, first-principles understanding of what "edge deployment" actually costs: where model size meets real-time performance, and where quantization and lighter architectures earn their place. My first step from simulation into running inference on real, constrained hardware.',
-    stack: ['Jetson Nano', 'Python', 'PyTorch', 'TensorRT', 'Object Detection', 'Edge Inference', 'Benchmarking'],
-    imageUrl: 'jetson_nano.jpeg',
-    imageUrlAlt: 'jetson_nano_2.jpeg',
+    featured: true,
+    details: 'A completed measurement study of real-time object detection on the NVIDIA Jetson Orin Nano Super — benchmarking SSD-MobileNet-v2, YOLOv8n, and YOLOv8s across inference latency, throughput, class-recall accuracy, memory footprint, and energy per frame. Built with custom timing harnesses and per-run telemetry captured via tegrastats, sweeping the device\'s 7W / 15W / MAXN power modes on TensorRT (JetPack 6.2.1, CUDA 12.6).\n\nThe headline finding is counterintuitive: because all three detectors infer 5–8× faster than a USB camera delivers frames, the sensor — not the GPU — is the bottleneck, which inverts power-mode intuition. Dropping from MAXN to 7W cut energy per frame from 212 mJ to 137 mJ with no loss in throughput. Alongside: YOLOv8s recovers 2.3× as many objects as SSD-MobileNet-v2 while being 33% smaller, and INT8 quantization runs 3.1–4.1× faster than FP32. Exactly the first-principles, measured understanding of edge-deployment cost the project set out to build.',
+    stack: ['Jetson Orin Nano', 'TensorRT', 'YOLOv8', 'INT8 Quantization', 'Power Efficiency', 'Edge Inference', 'Benchmarking'],
+    githubURL: 'https://github.com/zainmk/jetson-nano-benchmarks-lab',
+    images: ['jetson_nano.jpeg', 'jetson_nano_2.jpeg', 'jetson_nano_3.jpeg', 'jetson_nano_4.jpg'],
   },
   {
     name: 'KalmanNET',
@@ -222,11 +222,12 @@ const experienceMarkup = experienceItems
 const githubIcon = `<svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`
 
 function renderCard(project, index) {
+  const hasMedia = project.videoUrl || project.imageUrl || (project.images && project.images.length)
   const classes = [
     'project-panel',
     project.featured ? 'project-panel--featured' : '',
     project.inProgress ? 'project-panel--in-progress' : '',
-    !project.imageUrl ? 'project-panel--no-image' : '',
+    !hasMedia ? 'project-panel--no-image' : '',
     (project.url || project.githubURL) ? 'project-panel--clickable' : '',
   ].filter(Boolean).join(' ')
 
@@ -244,8 +245,10 @@ function renderCard(project, index) {
 
       ${project.videoUrl
         ? `<video class="project-image project-video" src="${project.videoUrl}"${project.imageUrl ? ` poster="${project.imageUrl}"` : ''} muted loop playsinline preload="metadata" aria-hidden="true"></video>`
-        : project.imageUrl ? `<img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">` : ''}
-      ${project.imageUrlAlt ? `<img class="project-image project-image--alt" src="${project.imageUrlAlt}" alt="${project.name} screenshot (alternate)" aria-hidden="true">` : ''}
+        : project.images && project.images.length
+          ? project.images.map((src, i) => `<img class="project-image project-slide${i === 0 ? ' is-current' : ''}" src="${src}" alt="${project.name} screenshot ${i + 1}"${i > 0 ? ' aria-hidden="true"' : ''}>`).join('')
+          : project.imageUrl ? `<img class="project-image" src="${project.imageUrl}" alt="${project.name} screenshot">` : ''}
+      ${project.imageUrlAlt && !project.images ? `<img class="project-image project-image--alt" src="${project.imageUrlAlt}" alt="${project.name} screenshot (alternate)" aria-hidden="true">` : ''}
 
       <div class="project-expanded">
         ${project.details.split('\n\n').map((para) => `<p>${para}</p>`).join('')}
@@ -484,19 +487,43 @@ projectPanels.forEach((panel, index) => {
     }
   }
 
+  const slides = Array.from(panel.querySelectorAll('.project-slide'))
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  let slideTimer = null
+  let slideIndex = 0
+  const startSlides = () => {
+    if (slides.length < 2 || reduceMotion || slideTimer) return
+    slideTimer = setInterval(() => {
+      slides[slideIndex].classList.remove('is-current')
+      slideIndex = (slideIndex + 1) % slides.length
+      slides[slideIndex].classList.add('is-current')
+    }, 1400)
+  }
+  const stopSlides = () => {
+    if (slideTimer) {
+      clearInterval(slideTimer)
+      slideTimer = null
+    }
+    slides.forEach((slide, i) => slide.classList.toggle('is-current', i === 0))
+    slideIndex = 0
+  }
+
   panel.addEventListener('mouseenter', () => {
     setActiveProject(index)
     playVideo()
+    startSlides()
   })
   panel.addEventListener('focusin', () => {
     setActiveProject(index)
     playVideo()
+    startSlides()
   })
 
   panel.addEventListener('mouseleave', () => {
     if (!panel.matches(':focus-within')) {
       setActiveProject(undefined)
       stopVideo()
+      stopSlides()
     }
   })
 
@@ -505,6 +532,7 @@ projectPanels.forEach((panel, index) => {
     if (!panel.contains(nextFocusedElement) && !panel.matches(':hover')) {
       setActiveProject(undefined)
       stopVideo()
+      stopSlides()
     }
   })
 
