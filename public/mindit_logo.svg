@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="mindIT">
+  <title>mindIT</title>
+  <!--
+    A brain read from above: two hemispheres either side of the midline, folds
+    cut through as negative space, the app's lobe palette running underneath as
+    a gradient. Folds carry the recognition at small sizes; the outline and the
+    colour do not.
+
+    Every shape is built from one half and mirrored about x=32, so the symmetry
+    is exact rather than eyeballed. Edit the left side only.
+  -->
+  <defs>
+    <linearGradient id="lobes" x1="6%" y1="18%" x2="94%" y2="82%">
+      <stop offset="0%"   stop-color="#5B84C4"/>  <!-- frontal -->
+      <stop offset="34%"  stop-color="#4E9E6A"/>  <!-- parietal -->
+      <stop offset="64%"  stop-color="#E8833A"/>  <!-- motor / insula warmth -->
+      <stop offset="100%" stop-color="#C2456B"/>  <!-- occipital -->
+    </linearGradient>
+
+    <!-- Left hemisphere only; the right is this mirrored. -->
+    <g id="folds">
+      <path d="M22.5 15.5c-5 2-6 7-2 9.5s3 7-2 8.5"/>
+      <path d="M14 22.5c3.6.6 5.4 3 4.6 6"/>
+      <path d="M24 38c3-1.6 5.6-1 7 1.2"/>
+    </g>
+  </defs>
+
+  <!-- Dark tile, so the icon holds against light and dark browser chrome. -->
+  <rect width="64" height="64" rx="14" fill="#0b0d12"/>
+
+  <g transform="translate(0,6)">
+    <!-- Down the left side, then back up the right as its exact mirror. -->
+    <path fill="url(#lobes)"
+          d="M32 8C28 5.5 22 6.5 20 10.5C14 10 9 14.5 10.5 20C6 22.5 5.5 29 9.5 32
+             C7.5 36.5 11 41 16 40.5C17.5 44.5 23 46.5 27 44C28.5 45.5 30.5 46 32 45.5
+             C33.5 46 35.5 45.5 37 44C41 46.5 46.5 44.5 48 40.5C53 41 56.5 36.5 54.5 32
+             C58.5 29 58 22.5 53.5 20C55 14.5 50 10 44 10.5C42 6.5 36 5.5 32 8Z"/>
+
+    <g fill="none" stroke="#0b0d12" stroke-width="3.2" stroke-linecap="round"
+       stroke-linejoin="round">
+      <use href="#folds"/>
+      <use href="#folds" transform="translate(64,0) scale(-1,1)"/>
+      <!-- Midline, inset at both ends so the round caps stay inside the shape
+           and the lower curls read as the base of the hemispheres. -->
+      <path d="M32 10.5v30"/>
+    </g>
+  </g>
+</svg>

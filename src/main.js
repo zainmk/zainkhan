@@ -83,6 +83,7 @@ const softwareProjects = [
   {
     name: 'mindIT',
     icon: 'MD',
+    iconImage: 'mindit_logo.svg',
     featured: true,
     details: 'An interactive 3D brain visualization tool for neuroscience learners — rotate a realistic brain model, click a region to learn its function, or search a concept to highlight the areas involved. Built to bridge the gap between reading about the mind (Descartes\' Error, Thinking Fast and Slow) and seeing where it physically lives.\n\nUnder the hood it\'s a graphics and data-pipeline project: a one-time Python pipeline bakes real neuroscience atlases (fsaverage5/Destrieux cortex, Harvard-Oxford deep structures via marching cubes) into binary buffers, so the deployed app is fully static with no backend. Rendering is performance-tuned — region picking and highlighting use lookup textures instead of vertex walks, giving sub-millisecond picking across 41k triangles, with two-pass cortex rendering to avoid transparency artifacts.',
     stack: ['React', 'TypeScript', 'Three.js', 'WebGL', 'Python', 'Data Pipeline', '3D Visualization'],
