@@ -81,6 +81,16 @@ const systemsProjects = [
 
 const softwareProjects = [
   {
+    name: 'mindIT',
+    icon: 'MD',
+    featured: true,
+    details: 'An interactive 3D brain visualization tool for neuroscience learners — rotate a realistic brain model, click a region to learn its function, or search a concept to highlight the areas involved. Built to bridge the gap between reading about the mind (Descartes\' Error, Thinking Fast and Slow) and seeing where it physically lives.\n\nUnder the hood it\'s a graphics and data-pipeline project: a one-time Python pipeline bakes real neuroscience atlases (fsaverage5/Destrieux cortex, Harvard-Oxford deep structures via marching cubes) into binary buffers, so the deployed app is fully static with no backend. Rendering is performance-tuned — region picking and highlighting use lookup textures instead of vertex walks, giving sub-millisecond picking across 41k triangles, with two-pass cortex rendering to avoid transparency artifacts.',
+    stack: ['React', 'TypeScript', 'Three.js', 'WebGL', 'Python', 'Data Pipeline', '3D Visualization'],
+    githubURL: 'https://github.com/zainmk/mindIT',
+    videoUrl: 'mindit_demo.mp4',
+    url: 'https://mind1t.vercel.app/'
+  },
+  {
     name: 'htmlr',
     icon: 'HR',
     iconImage: 'htmlr_logo.png',
@@ -180,6 +190,19 @@ const experienceItems = [
       'Lead a team of developer interns under Agile, defining coding principles and distributing work.',
     ],
     stack: ['ReactJS', 'NodeJS', 'SQL', 'Azure', 'Terraform', 'Databricks', 'CI/CD'],
+  },
+  {
+    company: 'SmartTechDeals',
+    role: 'Software Developer',
+    period: 'Jan 2024 – Sep 2024',
+    location: 'Calgary, AB',
+    logo: 'smarttechlogo.png',
+    points: [
+      'Built and managed the retail electronics store\'s Shopify platform — storefront, product listings, UX, and SEO — with custom Shopify API integrations.',
+      'Built autoadgen, a GitHub Actions + Claude pipeline that generates holiday- and deal-aware ads from live inventory and publishes them to the Shopify Admin console, human-verified before going live.',
+      'Automated multi-marketplace inventory sync in Python — hundreds of product records across Shopify, eBay, and Facebook Marketplace — keeping stock, pricing, and costs consistent across channels.',
+    ],
+    stack: ['Shopify', 'Shopify API', 'Python', 'GitHub Actions', 'Claude API', 'Automation', 'SEO'],
   },
   {
     company: 'Heliolytics',
