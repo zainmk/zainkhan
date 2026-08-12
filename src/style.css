@@ -45,6 +45,60 @@ a:hover {
   min-height: 100vh;
 }
 
+/* ── Nav ────────────────────────────────────────────────────── */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.55rem 1rem;
+  background: rgb(10 25 47 / 88%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+  border-color: rgb(100 255 218 / 30%);
+  text-decoration: none;
+}
+
+/* ── Proof strip ────────────────────────────────────────────── */
+
+.proof-strip {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+
+.proof-strip li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  background: rgb(100 255 218 / 7%);
+  border: 1px solid rgb(100 255 218 / 22%);
+  border-radius: 6px;
+  padding: 0.28rem 0.6rem;
+}
+
 /* ── Layout ─────────────────────────────────────────────────── */
 
 .store-layout {
@@ -530,6 +584,62 @@ h1 {
   margin-top: 0.7rem;
 }
 
+/* ── Always-visible one-line summary ────────────────────────── */
+
+.project-summary {
+  margin: 0.55rem 0 0;
+  color: var(--text);
+  font-size: 0.87rem;
+  line-height: 1.55;
+  opacity: 0.82;
+}
+
+/* ── Selected Work: expanded at rest, no hover required ─────── */
+
+.project-panel--open .project-expanded {
+  max-height: 620px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0.8rem;
+}
+
+.project-panel--open .github-link {
+  opacity: 0.65;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Selected cards show their media panel at rest, like a hovered card */
+.project-panel--open:not(.project-panel--no-image) {
+  padding-right: 55%;
+}
+
+.project-panel--open .project-image {
+  object-fit: contain;
+  object-position: right center;
+  width: 50%;
+  opacity: 1;
+  clip-path: none;
+  left: auto;
+  right: 0;
+}
+
+.project-panel--open .project-slide {
+  opacity: 0;
+}
+
+.project-panel--open .project-slide.is-current {
+  opacity: 1;
+}
+
+/* ── Link row (Live demo / GitHub) ──────────────────────────── */
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .project-expanded .tag-list {
   margin-top: 0.8rem;
 }
@@ -643,6 +753,98 @@ h1 {
 
 .experience-item .tag-list {
   margin-top: 0.9rem;
+}
+
+/* ── Archive ("More projects") ──────────────────────────────── */
+
+.archive {
+  margin-top: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.archive > summary {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  list-style: none;
+  transition: color 0.2s ease;
+}
+
+.archive > summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive > summary::before {
+  content: '+';
+  display: inline-block;
+  width: 1rem;
+  color: var(--accent);
+}
+
+.archive[open] > summary::before {
+  content: '−';
+}
+
+.archive > summary:hover {
+  color: var(--accent);
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.archive-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.6rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border);
+}
+
+.archive-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.archive-name:hover {
+  color: var(--accent);
+}
+
+.archive-summary {
+  flex: 1;
+  min-width: 12rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.archive-link {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  flex-shrink: 0;
+}
+
+.archive-link:hover {
+  color: var(--accent);
+  border-color: rgb(100 255 218 / 40%);
+  text-decoration: none;
 }
 
 /* ── About section ──────────────────────────────────────────── */
