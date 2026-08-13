@@ -23,7 +23,7 @@ const aboutGalleryImages = [
 
 const systemsProjects = [
   {
-    name: 'jetson-benchmarks-lab',
+    name: 'Jetson Orin Nano Benchmark Lab',
     icon: 'JN',
     selected: true,
     summary: 'Measured study: YOLO vs SSD latency, accuracy, and energy-per-frame on Jetson Orin.',
@@ -316,7 +316,7 @@ function renderCard(project) {
 
 const allProjectsFlat = [...systemsProjects, ...softwareProjects]
 // Full-stack showcase → AI/RAG → hardware, so the trio reads as balanced but software-led.
-const selectedOrder = ['mindIT', 'sensoRAG', 'jetson-benchmarks-lab']
+const selectedOrder = ['mindIT', 'sensoRAG', 'Jetson Orin Nano Benchmark Lab']
 const selectedProjects = allProjectsFlat
   .filter((p) => p.selected)
   .sort((a, b) => selectedOrder.indexOf(a.name) - selectedOrder.indexOf(b.name))
